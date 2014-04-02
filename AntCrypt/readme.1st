@@ -1,0 +1,6 @@
+This archive contains the version of AntCrypt submitted on March 31st, 2014 and
+includes the document as PDF, a reference implementation with a Makefile and
+test vectors.
+
+Please note that the two example programs, phc_demo and phc_tv will produce test
+vectors and demonstrate the implementation.

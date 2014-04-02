@@ -1,0 +1,142 @@
+The benchmarks below correspond to an older revision of yescrypt.  They
+were not re-run for the most recent revision.  However, similar results
+are expected.
+
+Dual Xeon E5-2670 2.6 GHz + turbo (up to 3.0 GHz with all cores in use,
+3.3 GHz with few cores in use), 128 GiB RAM (8x DDR3-1600 ECC Reg).
+These CPUs have 8 cores and 4 memory channels each, for a total of 16
+physical cores, 32 logical CPUs (HT is enabled), and 8 memory channels.
+The OS is Scientific Linux 6.4 (same as RHEL 6.4).
+
+First, we need to configure the Linux system, as root.  Grant our user
+account's group the privilege to access "huge pages" (2 MiB as opposed
+to x86's default 4 KiB pages):
+
+# sysctl -w vm.hugetlb_shm_group=1000
+
+(You may need to replace the "1000" with your user account's actual
+group id.)
+
+Let processes allocate up to 112 GiB in shared memory segments:
+
+# sysctl -w kernel.shmmax=120259084288
+
+Preallocate this much memory and 200 MiB more (to be potentially used
+for threads' "RAM" lookup tables) into 2 MiB pages (this will only work
+when there's a sufficiently large non-fragmented memory region, so is
+normally to be performed right upon system bootup):
+
+# sysctl -w vm.nr_hugepages=57444
+
+Now initialization of the ROM is possible:
+
+$ export GOMP_CPU_AFFINITY=0-31
+$ time ./initrom 112 1
+r=7 N=2^11 NROM=2^27
+Will use 117440512.00 KiB ROM
+         1792.00 KiB RAM
+Initializing ROM ... DONE (0e644812)
+'$7X3$95..../....WZaPV7LSUEKMo34.$UJxyIFR5NmT8WJ3ibOuVSAB3iQ/2IkruLUWTThZ/BN6'
+
+real    0m41.881s
+user    11m14.147s
+sys     0m38.607s
+
+This took under 1 minute, and now we're able to quickly hash passwords
+from another process (this may be the authentication service):
+
+$ ./userom 112 1
+r=7 N=2^11 NROM=2^27
+Will use 117440512.00 KiB ROM
+         1792.00 KiB RAM
+ROM access frequency mask: 0x1
+'$7X3$95..../....WZaPV7LSUEKMo34.$UJxyIFR5NmT8WJ3ibOuVSAB3iQ/2IkruLUWTThZ/BN6'
+Benchmarking 1 thread ...
+408 c/s real, 412 c/s virtual (511 hashes in 1.25 seconds)
+Benchmarking 32 threads ...
+7589 c/s real, 236 c/s virtual (7665 hashes in 1.01 seconds)
+
+This is 48.7 GB/s:
+
+1792 KiB * 3.5 reads&writes * 7589 c/s * 1024/1000 = 48740565 KB/s
+
+When not using a ROM, the speed improves to:
+
+$ ./userom 0 2
+r=8 N=2^11 NROM=2^0
+Will use 0.00 KiB ROM
+         2048.00 KiB RAM
+'$7X3$96..../....WZaPV7LSUEKMo34.$yiVEyLf68agsa3VGSX7LClYXak8P/AQAoswcRRHBRt2'
+Benchmarking 1 thread ...
+440 c/s real, 444 c/s virtual (511 hashes in 1.16 seconds)
+Benchmarking 32 threads ...
+8207 c/s real, 257 c/s virtual (15841 hashes in 1.93 seconds)
+
+This is 60.2 GB/s:
+
+1792 KiB * 4 reads&writes * 8207 c/s * 1024/1000 = 60239643 KB/s
+
+In both cases, we're not counting accesses that are expected to hit L1
+or L2 cache, which there are many of.  We're, however, counting
+accesses that may be hitting L3 cache.
+
+The theoretical peak RAM access speed for this machine is:
+
+1600 MT/s * 8 channels * 8 bytes = 102.4 GB/s
+
+(This speed is never reached in practice, not even in RAM benchmarks not
+involving any computation.  On this machine, synthetic RAM benchmarks
+reach about 85 GB/s.)
+
+By the way, here's what our SysV shared memory segment looks like:
+
+$ ipcs
+
+------ Shared Memory Segments --------
+key        shmid      owner      perms      bytes      nattch     status
+0x524f4d0a 360448     solar      640        120259084288 0
+
+The 120+ GB size corresponds to 112 GiB.
+
+Cleanup (remove the SysV shared memory segment holding the ROM and free
+up the preallocated 2 MiB pages):
+
+$ ipcrm -M 0x524f4d0a
+
+# sysctl -w vm.nr_hugepages=0
+
+Without explicit use of 2 MiB pages (that is, most likely with 4 KiB
+pages), the test programs above run fine as well, but slower, presumably
+mostly because of cache thrashing with page tables.  ROM initialization
+time is about as good:
+
+$ time ./initrom 112 1
+r=7 N=2^11 NROM=2^27
+Will use 117440512.00 KiB ROM
+         1792.00 KiB RAM
+shmget: Cannot allocate memory
+Retrying without SHM_HUGETLB
+Initializing ROM ... DONE (0e644812)
+'$7X3$95..../....WZaPV7LSUEKMo34.$UJxyIFR5NmT8WJ3ibOuVSAB3iQ/2IkruLUWTThZ/BN6'
+
+real    0m42.141s
+user    12m17.489s
+sys     8m33.598s
+
+However, password hashing speed while using that ROM on small pages is
+impacted badly:
+
+$ ./userom 112 1
+r=7 N=2^11 NROM=2^27
+Will use 117440512.00 KiB ROM
+         1792.00 KiB RAM
+ROM access frequency mask: 0x1
+'$7X3$95..../....WZaPV7LSUEKMo34.$UJxyIFR5NmT8WJ3ibOuVSAB3iQ/2IkruLUWTThZ/BN6'
+Benchmarking 1 thread ...
+157 c/s real, 158 c/s virtual (255 hashes in 1.62 seconds)
+Benchmarking 32 threads ...
+1733 c/s real, 54 c/s virtual (1785 hashes in 1.03 seconds)
+
+Thus, at these ROM sizes the use of "huge pages" is a must - otherwise
+we're giving attackers (who would tune their systems) a 4x+ performance
+advantage.

@@ -1,0 +1,26 @@
+This is some code designed to pebble graphs somewhat efficiently.  This can provide a
+lower bound on the effectiveness of TMTO attacks.
+
+The first version will place N pebbles, and put them in a "lazy group".  A pebble can be
+pulled from the lazy group without specifying which one, but we decrement the number of
+pebbles available in the group when we do.  We also can remove a pebble from the group at
+any time, which we do if we have a dependency on it while pebbling another node.  Once the
+group's available pebble counter reaches 0, we remove all the pebbles remaining in the
+group and build a new group from all the pebbles currently placed.
+
+This will always pebble 2N nodes without recalculation.
+
+Example usage:
+
+Test Catena-3 with 1024 nodes (G=256), and 128 pebbles:
+
+predict> ./pebble -m 1024 -p 128 -s 12 catena
+========= Testing catena
+Total pebbles: 128 out of 1024 (12.5%)
+Recalculation penalty is 15.4160X
+Mid-cut size: 256 (25.0%)
+
+
+Test Catena3 in verbose mode to see how the pebbling works:
+pebble -m 32 -p 7 -v catena | less
+

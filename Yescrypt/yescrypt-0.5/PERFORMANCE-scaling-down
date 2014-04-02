@@ -1,0 +1,74 @@
+The benchmarks below correspond to an older revision of yescrypt.  They
+were not re-run for the most recent revision.  However, similar results
+are expected.
+
+Dual Pentium 3, 1 GHz (an IBM workstation circa year 2000), running
+current Openwall GNU/*/Linux.  ROM size scaled down to 112 MiB:
+
+First, we need to configure the Linux system, as root.
+
+Let processes allocate up to 112 MiB in shared memory segments:
+
+# sysctl -w kernel.shmmax=117440512
+
+Now initialization of the ROM is possible:
+
+$ time ./initrom
+r=7 N=2^11 NROM=2^17
+Will use 114688.00 KiB ROM
+         1792.00 KiB RAM
+shmget: Function not implemented
+Retrying without SHM_HUGETLB
+Initializing ROM ... DONE (0592b260)
+'$7X3$95..../....WZaPV7LSUEKMo34.$tWYLFCyQajL/uPib1HOiYrvEgz8HKPApUoMj4S6J.69'
+
+real    0m4.485s
+user    0m7.968s
+sys     0m0.504s
+
+This took under 5 seconds, and now we're able to (relatively) quickly
+hash passwords from another process:
+
+$ ./userom
+r=7 N=2^11 NROM=2^17
+Will use 114688.00 KiB ROM
+         1792.00 KiB RAM
+ROM access frequency mask: 0x1
+'$7X3$95..../....WZaPV7LSUEKMo34.$tWYLFCyQajL/uPib1HOiYrvEgz8HKPApUoMj4S6J.69'
+Benchmarking 1 thread ...
+9 c/s real, 9 c/s virtual (15 hashes in 1.53 seconds)
+Benchmarking 2 threads ...
+19 c/s real, 10 c/s virtual (45 hashes in 2.29 seconds)
+
+Scaling down of the RAM portion to achieve higher c/s rates as if we were
+going to use this Pentium 3 machine for an auth server (not recommended):
+
+$ ./userom
+r=7 N=2^7 NROM=2^17
+Will use 114688.00 KiB ROM
+         112.00 KiB RAM
+ROM access frequency mask: 0x1
+'$7X3$55..../....WZaPV7LSUEKMo34.$tioZe3w2turVdlZJOYE.TcxqF6a73TyPj227N/p6400'
+Benchmarking 1 thread ...
+166 c/s real, 167 c/s virtual (255 hashes in 1.53 seconds)
+Benchmarking 2 threads ...
+324 c/s real, 168 c/s virtual (765 hashes in 2.36 seconds)
+
+These speeds are comparable to optimized bcrypt code at the $2a$05 cost
+setting running on the same machine.
+
+Cleanup (remove the SysV shared memory segment holding the ROM):
+
+$ ipcrm -M 0x524f4d0a
+
+Without the ROM:
+
+$ ./userom 0
+r=8 N=2^7 NROM=2^0
+Will use 0.00 KiB ROM
+         128.00 KiB RAM
+'$7X3$56..../....WZaPV7LSUEKMo34.$aASx8ttzWhTYanMam7D7T4Gnqt8gtguH1lEdUN4Sj5/'
+Benchmarking 1 thread ...
+166 c/s real, 166 c/s virtual (255 hashes in 1.53 seconds)
+Benchmarking 2 threads ...
+331 c/s real, 168 c/s virtual (765 hashes in 2.31 seconds)

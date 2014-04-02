@@ -1,0 +1,6 @@
+%\setlength{\parskip}{\baselineskip}
+\setlength{\parskip}{5pt}
+\setlength{\parindent}{0mm}
+\sloppy
+\usepackage[a4paper,inner=25mm,outer=25mm,top=35mm,bottom=35mm]{geometry}
+\newcommand*\xor{\oplus}

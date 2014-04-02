@@ -1,0 +1,97 @@
+The benchmarks below correspond to an older revision of yescrypt.  They
+were not re-run for the most recent revision.  However, similar results
+are expected.
+
+Core i7-4770K 3.5 GHz + turbo (up to 3.7 GHz with all cores in use,
+3.9 GHz with one core in use), HT is enabled (giving 8 logical CPUs),
+32 GiB RAM (4x DDR3-1600, but the CPU has only 2 memory channels).
+The OS is Ubuntu 12.04.2.
+
+First, we need to configure the Linux system, as root.  Grant our user
+account's group the privilege to access "huge pages" (2 MiB as opposed
+to x86's default 4 KiB pages):
+
+# sysctl -w vm.hugetlb_shm_group=1000
+
+(You may need to replace the "1000" with your user account's actual
+group id.)
+
+Let processes allocate up to 3 GiB in shared memory segments:
+
+# sysctl -w kernel.shmmax=3221225472
+
+Preallocate this much memory and 200 MiB more (to be potentially used
+for threads' "RAM" lookup tables) into 2 MiB pages (this will only work
+when there's a sufficiently large non-fragmented memory region, so is
+normally to be performed right upon system bootup):
+
+# sysctl -w vm.nr_hugepages=1636
+
+Now initialization of the ROM is possible:
+
+$ time ./initrom
+r=6 N=2^12 NROM=2^22
+Will use 3145728.00 KiB ROM
+         3072.00 KiB RAM
+Initializing ROM ... DONE (7b90baf9)
+'$7X3$A4..../....WZaPV7LSUEKMo34.$5s4cetx5p9HNpa4x3I10oHYf6tkoHgIiQJShvobQKB2'
+
+real    0m2.017s
+user    0m14.957s
+sys     0m1.000s
+
+This took 2 seconds, and now we're able to quickly hash passwords from
+another process (this may be the authentication service):
+
+$ ./userom
+r=6 N=2^12 NROM=2^22
+Will use 3145728.00 KiB ROM
+         3072.00 KiB RAM
+ROM access frequency mask: 0x1
+'$7X3$A4..../....WZaPV7LSUEKMo34.$5s4cetx5p9HNpa4x3I10oHYf6tkoHgIiQJShvobQKB2'
+Benchmarking 1 thread ...
+354 c/s real, 357 c/s virtual (511 hashes in 1.44 seconds)
+Benchmarking 8 threads ...
+1344 c/s real, 167 c/s virtual (1533 hashes in 1.14 seconds)
+
+Cleanup (remove the SysV shared memory segment holding the ROM and free
+up the preallocated 2 MiB pages):
+
+$ ipcrm -M 0x524f4d0a
+
+# sysctl -w vm.nr_hugepages=0
+
+Without explicit use of 2 MiB pages (that is, more likely with 4 KiB
+pages), the test programs above run fine as well, and actually this time
+they're almost as fast, although in some other cases we've observed much
+more of a difference (see PERFORMANCE-scaling-up).
+
+Here are the timings without explicit 2 MiB pages:
+
+$ time ./initrom
+r=6 N=2^12 NROM=2^22
+Will use 3145728.00 KiB ROM
+         3072.00 KiB RAM
+shmget: Cannot allocate memory
+Retrying without SHM_HUGETLB
+Initializing ROM ... DONE (7b90baf9)
+'$7X3$A4..../....WZaPV7LSUEKMo34.$5s4cetx5p9HNpa4x3I10oHYf6tkoHgIiQJShvobQKB2'
+
+real    0m2.048s
+user    0m14.629s
+sys     0m1.204s
+
+$ ./userom
+r=6 N=2^12 NROM=2^22
+Will use 3145728.00 KiB ROM
+         3072.00 KiB RAM
+ROM access frequency mask: 0x1
+'$7X3$A4..../....WZaPV7LSUEKMo34.$5s4cetx5p9HNpa4x3I10oHYf6tkoHgIiQJShvobQKB2'
+Benchmarking 1 thread ...
+191 c/s real, 193 c/s virtual (255 hashes in 1.33 seconds)
+Benchmarking 8 threads ...
+1332 c/s real, 167 c/s virtual (1785 hashes in 1.34 seconds)
+
+It might be possible to improve the single-thread speed seen here by
+including some warm-up in the program.  Anyhow, the multi-threaded
+throughput is more relevant.

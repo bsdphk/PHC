@@ -1,0 +1,557 @@
+--- JohnTheRipper/src/pufferfish_ref_fmt_plug.c	1969-12-31 16:00:00.000000000 -0800
++++ JohnTheRipper-mine/src/pufferfish_ref_fmt_plug.c	2014-03-30 06:22:12.656755351 -0700
+@@ -0,0 +1,190 @@
++/* Authored March 2014 by epixoip
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted.
++ *
++ * There's ABSOLUTELY NO WARRANTY, express or implied.
++ */
++
++#include <stdlib.h>
++#include <string.h>
++#include <stdint.h>
++#include "arch.h"
++#include "misc.h"
++#include "common.h"
++#include "formats.h"
++#include "pf_ref.c"
++
++#define FORMAT_LABEL			"pufferfish-ref"
++#define FORMAT_NAME			"reference impl."
++
++#define BENCHMARK_COMMENT		" (tcost 05, mcost 04 (16 KiB))"
++#define BENCHMARK_LENGTH		-1
++
++#define PLAINTEXT_LENGTH		111
++
++#define BINARY_SIZE			8
++#define BINARY_ALIGN			8
++#define SALT_SIZE			sizeof (pf_ref_salt)
++#define SALT_ALIGN			8
++
++#define MIN_KEYS_PER_CRYPT		1
++#define MAX_KEYS_PER_CRYPT		1
++
++static struct fmt_tests tests[] = {
++	{ "$PF$KBSuLHY8CThvmINxtvBnBmi/88W$4Yl2W2KJzRkyeAugryEI2gQGgl8IpyW2I2rmuUtWSTC", "" },
++	{ "$PF$KBSuLE3zuUAMWGUXZ5y9PeIzji6$3ocWXSZugUG8vlLaJ55Nsr0CUBSQS6SZzXS3WUTZFNi", "a" },
++	{ "$PF$KBSuLK9wi.M3UPYnLwhl0IEMR7y$x/gnCeOou0mVDwQ0huK8jKCLFfuuKtghr4hpQvvW97a", "aa" },
++	{ "$PF$KBSuLDR4Sp/9oPBNJNCLzg77Ig6$7TdVUnJkPrWP6FTJ1Tni.OROUr62OLhB0QBzM3YqQHe", "aaa" },
++	{ "$PF$KBSuLFjVtp0qXXE6s7jsVjskkLK$Xo0sv4YIxUi9JzLK3rr2UIMsddY4ynHMHHIwLRfB4dK", "123456" },
++	{ "$PF$KBSuLJNKa7Rt77aoYz8vdGjWFgG$io.p6EIQ3EZp2ZvYm8i0zJ/WBQifOPOYJZ3wuhB9v2C", "epixoip" },
++	{ "$PF$KBSuLAT3LVl.RVbpCaHErCiel3O$sVE8J1TsCthjUWFARTmebcH90F.Gd2VbC6T/zyGAqwe", "password" },
++	{ "$PF$KBSuLHA/N/dPs/47cB3Q/z34X1C$zS3QTzqBJoL49gOZaN.S.uWmkZ5JTH.czyv.vyOqQQG", "mot\xf6rhead" },
++	{ "$PF$KBSuL.JxRfIKF2zHwPF9n3/U4au$8cONj/KJikciDflac1oyzwlrT.jv65Sr1uy/47fKs6K", "this has spaces!" },
++	{ "$PF$KBSuLKt.ALJU/ZQ7d/uG6kcsarK$SbTKSiOmYqYxzXHjpT9HBMxc2YjFcbT.dteb9kX2aZ6", "\x55\xaa\xff\x55\xaa\xff\x55\xaa\xff\x55\xaa\xff" },
++	{ NULL }
++};
++
++static pf_ref_salt saved_salt;
++static unsigned char saved_key[PLAINTEXT_LENGTH + 1];
++
++static void init (struct fmt_main *self)
++{
++	return;
++}
++
++static int valid (char *ciphertext, struct fmt_main *self)
++{
++	char tcost_str[5] = { '0', 'x', 0 };
++	char mcost_str[11] = { '0', 'x', 0 };
++	unsigned char decoded[255] = { 0 };
++	int pos = 0;
++	char *cptr;
++
++	if (strncmp (PUF_ID, ciphertext, PUF_ID_LEN))
++		return 0;
++
++	for (cptr = ciphertext + PUF_ID_LEN; *cptr++ != '$' && pos < strlen(ciphertext); pos++);
++
++	if (5 > pf_ref_decode64 (decoded, pos, ciphertext + PUF_ID_LEN))
++		return 0;
++
++	memmove (tcost_str + 2, decoded, 2);
++	if (256 < strtol (tcost_str, NULL, 16))
++		return 0;
++
++	memmove (mcost_str + 2, decoded + 2, 2);
++	if (256 < strtol (mcost_str, NULL, 16))
++		return 0;
++
++	return 1;
++}
++
++static int get_hash_0 (int index) { return pf_ref_out[0] & 0xf; }
++static int get_hash_1 (int index) { return pf_ref_out[0] & 0xff; }
++static int get_hash_2 (int index) { return pf_ref_out[0] & 0xfff; }
++static int get_hash_3 (int index) { return pf_ref_out[0] & 0xffff; }
++static int get_hash_4 (int index) { return pf_ref_out[0] & 0xfffff; }
++static int get_hash_5 (int index) { return pf_ref_out[0] & 0xffffff; }
++static int get_hash_6 (int index) { return pf_ref_out[0] & 0x7ffffff; }
++
++static int salt_hash (void *salt)
++{
++	return *((pf_ref_salt *) salt)->rawsalt & (SALT_HASH_SIZE - 1);
++}
++
++static void set_salt (void *salt)
++{
++	memmove (&saved_salt, salt, SALT_SIZE);
++}
++
++static void set_key (char *key, int index)
++{
++	strnzcpy ((char *) saved_key, key, PLAINTEXT_LENGTH + 1);
++}
++
++static char *get_key (int index)
++{
++	return (char *) saved_key;
++}
++
++static int crypt_all (int *pcount, struct db_salt *salt)
++{
++	int count = *pcount;
++
++	pf_ref_crypt (saved_key, &saved_salt);
++
++	return count;
++}
++
++static int cmp_all(void *binary, int count)
++{
++	return *(uint64_t *) binary == pf_ref_out[0];
++}
++
++static int cmp_one(void *binary, int index)
++{
++	return *(uint64_t *)binary == pf_ref_out[0];
++}
++
++static int cmp_exact(char *source, int index)
++{
++	return !memcmp (pf_ref_get_binary (source), pf_ref_out, sizeof (pf_ref_binary));
++}
++
++struct fmt_main fmt_pufferfish_ref = {
++	{
++		FORMAT_LABEL,
++		FORMAT_NAME,
++		PF_ALGORITHM_NAME,
++		BENCHMARK_COMMENT,
++		BENCHMARK_LENGTH,
++		PLAINTEXT_LENGTH,
++		BINARY_SIZE,
++		BINARY_ALIGN,
++		SALT_SIZE,
++		SALT_ALIGN,
++		MIN_KEYS_PER_CRYPT,
++		MAX_KEYS_PER_CRYPT,
++		FMT_CASE | FMT_8_BIT,
++		tests
++	}, {
++		init,
++		fmt_default_done,
++		fmt_default_reset,
++		fmt_default_prepare,
++		valid,
++		fmt_default_split,
++		pf_ref_get_binary,
++		pf_ref_get_salt,
++		fmt_default_source,
++		{
++			fmt_default_binary_hash_0,
++			fmt_default_binary_hash_1,
++			fmt_default_binary_hash_2,
++			fmt_default_binary_hash_3,
++			fmt_default_binary_hash_4,
++			fmt_default_binary_hash_5,
++			fmt_default_binary_hash_6
++		},
++		salt_hash,
++		set_salt,
++		set_key,
++		get_key,
++		fmt_default_clear_keys,
++		crypt_all,
++		{
++			get_hash_0,
++			get_hash_1,
++			get_hash_2,
++			get_hash_3,
++			get_hash_4,
++			get_hash_5,
++			get_hash_6
++		},
++		cmp_all,
++		cmp_one,
++		cmp_exact
++	}
++};
++
+--- JohnTheRipper/src/pf_ref.h	1969-12-31 16:00:00.000000000 -0800
++++ JohnTheRipper-mine/src/pf_ref.h	2014-03-30 05:49:01.080757487 -0700
+@@ -0,0 +1,107 @@
++/* Authored March 2014 by epixoip
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted.
++ *
++ * There's ABSOLUTELY NO WARRANTY, express or implied.
++ */
++
++#ifndef _JOHN_PF_REF_H
++#define _JOHN_PF_REF_H
++
++#include <stdint.h>
++#include <openssl/sha.h>
++#include <openssl/hmac.h>
++#include "arch.h"
++#include "common.h"
++
++#define PF_ALGORITHM_NAME "pufferfish 64/" ARCH_BITS_STR
++#define PUF_ID "$PF$"				/* hash identification str */
++#define PUF_ID_LEN strlen (PUF_ID)		/* length of the identifier */
++#define NUM_SBOXES 4				/* number of sboxes */
++#define WORDSIZ sizeof (uint64_t)		/* number of bytes per word */
++#define PUF_N 16				/* number of subkeys */
++#define STATE_N 8				/* number of words in state */
++#define BLOCKSIZ 16				/* number of bytes in a block */
++#define DIGEST_LEN SHA512_DIGEST_LENGTH		/* digest length */
++#define KEYSIZ (DIGEST_LEN / sizeof (uint64_t))	/* number of words in key */
++#define OUTSIZ (KEYSIZ / 2)			/* number of words in output */
++
++#define HMAC_SHA512(a,b,c,d) \
++    (HMAC (EVP_sha512(), (a), (b), (const unsigned char *) (c), (d), NULL, NULL))
++
++#define char64(c)((c) > 127 ? 255 : pf_ref_index64[(c)])
++
++#define shr(x,n) (x >> n)
++#define shl(x,n) (x << n)
++#define rotr64(x,n) (shr(x,n) | (x << (64 - n)))
++#define rotl64(x,n) (shl(x,n) | (x >> (64 - n)))
++
++#define uint8_to_uint64(n,b,c)	           \
++{					   \
++    (n) = ( (uint64_t) (b)[(c)  ] << 56 )  \
++	| ( (uint64_t) (b)[(c)+1] << 48 )  \
++	| ( (uint64_t) (b)[(c)+2] << 40 )  \
++	| ( (uint64_t) (b)[(c)+3] << 32 )  \
++	| ( (uint64_t) (b)[(c)+4] << 24 )  \
++	| ( (uint64_t) (b)[(c)+5] << 16 )  \
++	| ( (uint64_t) (b)[(c)+6] <<  8 )  \
++	| ( (uint64_t) (b)[(c)+7]       ); \
++}
++
++#define uint64_to_uchar(n,b,c)			       \
++{						        \
++    (b)[(c)  ] = (unsigned char) ( (n) >> 56 & 0xff );  \
++    (b)[(c)+1] = (unsigned char) ( (n) >> 48 & 0xff );  \
++    (b)[(c)+2] = (unsigned char) ( (n) >> 40 & 0xff );  \
++    (b)[(c)+3] = (unsigned char) ( (n) >> 32 & 0xff );  \
++    (b)[(c)+4] = (unsigned char) ( (n) >> 24 & 0xff );  \
++    (b)[(c)+5] = (unsigned char) ( (n) >> 16 & 0xff );  \
++    (b)[(c)+6] = (unsigned char) ( (n) >>  8 & 0xff );  \
++    (b)[(c)+7] = (unsigned char) ( (n)       & 0xff );  \
++}
++
++typedef struct pufferfish_context
++{
++	uint64_t P[PUF_N + 2];			/* p-array */
++	uint64_t *S[NUM_SBOXES];		/* s-boxes */
++	uint64_t key[KEYSIZ];			/* generated key */
++	uint64_t salt[KEYSIZ];			/* hashed salt */
++	unsigned int m_cost;			/* in KiB  */
++	unsigned int sbox_words;		/* words per sbox */
++	unsigned int log2_sbox_words;		/* log2 words per sbox */
++} puf_ctx;
++
++typedef struct {
++	long t_cost;
++	long m_cost;
++	int saltlen;
++	unsigned char rawsalt[16];
++} pf_ref_salt;
++
++typedef uint64_t pf_ref_binary[OUTSIZ];
++typedef enum { false, true } bool;
++
++extern pf_ref_binary pf_ref_out;
++
++extern void pf_ref_set_key (char *key);
++extern void pf_ref_crypt (unsigned char *password, pf_ref_salt *salt);
++extern void *pf_ref_get_salt (char *ciphertext);
++extern void *pf_ref_get_binary (char *ciphertext);
++extern int pf_ref_decode64 (unsigned char *dst, int size, char *src);
++
++const static unsigned char pf_ref_itoa64[] =
++	"./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
++
++const static unsigned char pf_ref_index64[0x80] = {
++	255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
++	255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
++	255,255,255,255,255,255,255,255,255,255,255,255,255,255,  0,  1,
++	 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,255,255,255,255,255,255,
++	255,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
++	 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,255,255,255,255,255,
++	255, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
++	 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,255,255,255,255,255
++};
++
++#endif
+--- JohnTheRipper/src/pf_ref.c	1969-12-31 16:00:00.000000000 -0800
++++ JohnTheRipper-mine/src/pf_ref.c	2014-03-30 05:49:01.056757487 -0700
+@@ -0,0 +1,251 @@
++/* Authored March 2014 by epixoip
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted.
++ *
++ * There's ABSOLUTELY NO WARRANTY, express or implied.
++ */
++
++#include <stdlib.h>
++#include <string.h>
++#include <stdint.h>
++#include <openssl/sha.h>
++#include <openssl/hmac.h>
++#include "arch.h"
++#include "common.h"
++#include "pf_ref.h"
++
++#pragma GCC optimize 3
++
++pf_ref_binary pf_ref_out;
++
++int pf_ref_decode64 (unsigned char *dst, int size, char *src)
++{
++	unsigned char *sptr = (unsigned char *) src;
++	unsigned char *dptr = dst;
++	unsigned char *end  = dst + size;
++	unsigned char c1, c2, c3, c4;
++
++	do
++	{
++		c1 = char64(*sptr);
++		c2 = char64(*(sptr + 1));
++
++		if (c1 == 255 || c2 == 255) break;
++
++		*dptr++ = shl(c1, 2) | shr((c2 & 0x30), 4);
++		if (dptr >= end) break;
++
++		c3 = char64(*(sptr + 2));
++		if (c3 == 255) break;
++
++		*dptr++ = shl((c2 & 0x0f), 4) | shr((c3 & 0x3c), 2);
++		if (dptr >= end) break;
++
++		c4 = char64(*(sptr + 3));
++		if (c4 == 255) break;
++
++		*dptr++ = shl((c3 & 0x03), 6) | c4;
++		sptr += 4;
++	} while (dptr < end);
++
++	return (dptr - dst);
++}
++
++static void pf_ref_initstate (puf_ctx *context, const void *password, size_t password_len, const void *salt, size_t salt_len, unsigned int m_cost)
++{
++	int i, j;
++	unsigned char *key_hash;
++	unsigned char salt_hash[DIGEST_LEN];
++	uint64_t *state;
++
++	puf_ctx initstate =
++	{
++		{
++			0x243f6a8885a308d3, 0x13198a2e03707344, 0xa4093822299f31d0,
++			0x082efa98ec4e6c89, 0x452821e638d01377, 0xbe5466cf34e90c6c,
++			0xc0ac29b7c97c50dd, 0x3f84d5b5b5470917, 0x9216d5d98979fb1b,
++			0xd1310ba698dfb5ac, 0x2ffd72dbd01adfb7, 0xb8e1afed6a267e96,
++			0xba7c9045f12c7f99, 0x24a19947b3916cf7, 0x0801f2e2858efc16,
++			0x636920d871574e69, 0xa458fea3f4933d7e, 0x0d95748f728eb658
++		}
++	};
++
++	initstate.m_cost =  1 << m_cost;
++	initstate.log2_sbox_words = m_cost + 5;
++	initstate.sbox_words = 1 << initstate.log2_sbox_words;
++
++	SHA512 (salt, salt_len, salt_hash);
++	state = (uint64_t*) HMAC_SHA512 (salt_hash, DIGEST_LEN, password, password_len);
++
++	for (i = 0; i < NUM_SBOXES; i++)
++	{
++		initstate.S[i] = (uint64_t *) calloc (initstate.sbox_words, WORDSIZ);
++
++		for (j = 0; j < initstate.sbox_words; j+=STATE_N)
++		{
++			SHA512 ((const unsigned char *) state, DIGEST_LEN, (unsigned char *)(initstate.S[i] + j));
++			state = initstate.S[i] + j;
++		}
++	}
++
++	key_hash = HMAC_SHA512 ((const unsigned char *) state, DIGEST_LEN, password, password_len);
++
++	*context = initstate;
++	memmove (context->key, key_hash, DIGEST_LEN);
++	memmove (context->salt, salt_hash, DIGEST_LEN);
++}
++
++static uint64_t pf_ref_f (puf_ctx *context, uint64_t x)
++{
++	return ((context->S[0][(x >> (64 - context->log2_sbox_words))                            ]  ^
++		 context->S[1][(x >> (48 - context->log2_sbox_words)) & (context->sbox_words - 1)]) +
++		 context->S[2][(x >> (32 - context->log2_sbox_words)) & (context->sbox_words - 1)]) ^
++		 context->S[3][(x >> (16 - context->log2_sbox_words)) & (context->sbox_words - 1)];
++}
++
++static void pf_ref_encipher (puf_ctx *context, uint64_t *LL, uint64_t *RR)
++{
++	int i = 0;
++	uint64_t L = *LL, R = *RR;
++
++	for (i = 0; i < PUF_N; i+=2)
++	{
++		L ^= context->P[i];
++		R ^= pf_ref_f (context, L);
++		R ^= context->P[i+1];
++		L ^= pf_ref_f (context, R);
++	}
++
++	L ^= context->P[16];
++	R ^= context->P[17];
++	*LL = R;
++	*RR = L;
++}
++
++static void pf_ref_ecb_encrypt (puf_ctx *context, uint8_t *data, size_t len)
++{
++	uint64_t i, L = 0, R = 0;
++
++	for (i = 0; i < len; i+=BLOCKSIZ)
++	{
++		uint8_to_uint64 (L, data, 0);
++		uint8_to_uint64 (R, data, 8);
++
++		pf_ref_encipher (context, &L, &R);
++
++		uint64_to_uchar (L, data, 0);
++		uint64_to_uchar (R, data, 8);
++
++		data+=BLOCKSIZ;
++	}
++}
++
++static void pf_ref_expandkey (puf_ctx *context, const uint64_t data[KEYSIZ], const uint64_t key[KEYSIZ])
++{
++	int i, j;
++	uint64_t L = 0, R = 0;
++
++	for (i = 0; i < PUF_N + 2; i++)
++		context->P[i] ^= key[i%KEYSIZ];
++
++	for (i = 0; i < PUF_N + 2; i+=2)
++	{
++		L ^= data[i%KEYSIZ];
++		R ^= data[(i+1)%KEYSIZ];
++
++		pf_ref_encipher (context, &L, &R);
++
++		context->P[i]   = L;
++		context->P[i+1] = R;
++	}
++
++	for (i = 0; i < NUM_SBOXES; i++)
++	{
++		for (j = 0; j < context->sbox_words; j+=2)
++		{
++			L ^= data[j%KEYSIZ];
++			R ^= data[(j+1)%KEYSIZ];
++
++			pf_ref_encipher (context, &L, &R);
++
++			context->S[i][j]   = L;
++			context->S[i][j+1] = R;
++		}
++	}
++}
++
++void pf_ref_crypt (unsigned char *password, pf_ref_salt *salt)
++{
++	puf_ctx context;
++
++	int i, j, count;
++	uint64_t null_data[8] = { 0 };
++	unsigned char ctext[] = "Drab as a fool, aloof as a bard.";
++
++	pf_ref_initstate (&context, password, strlen ((char *) password), salt->rawsalt, salt->saltlen, salt->m_cost);
++
++	pf_ref_expandkey (&context, context.salt, context.key);
++
++	count = 1 << salt->t_cost;
++	do
++	{
++		pf_ref_expandkey (&context, null_data, context.salt);
++		pf_ref_expandkey (&context, null_data, context.key);
++	}
++	while (--count);
++
++	for (i = 0; i < 64; i++)
++		pf_ref_ecb_encrypt (&context, ctext, 32);
++
++	SHA512 ((const unsigned char *) ctext, 32, (unsigned char *) &pf_ref_out);
++
++	for (i = 0; i < NUM_SBOXES; i++)
++	{
++		for (j = 0; j < context.sbox_words; j++)
++			context.S[i][j] = 0;
++		free (context.S[i]);
++	}
++}
++
++void *pf_ref_get_salt (char *ciphertext)
++{
++	static pf_ref_salt salt;
++
++	char tcost_str[5] = { '0', 'x', 0 };
++	char mcost_str[11] = { '0', 'x', 0 };
++	unsigned char decoded[255] = { 0 };
++
++	int saltlen, bytes = 0, pos = 0;
++	char *cptr = ciphertext + PUF_ID_LEN;
++
++	for (; *cptr++ != '$' && pos < strlen (ciphertext); pos++);
++
++	bytes = pf_ref_decode64 (decoded, pos, ciphertext + PUF_ID_LEN);
++	saltlen = bytes - 4;
++
++	memmove (tcost_str + 2, decoded, 2);
++	salt.t_cost = strtol (tcost_str, NULL, 16);
++
++	memmove (mcost_str + 2, decoded + 2, 2);
++	salt.m_cost = strtol (mcost_str, NULL, 16);
++
++	memmove (&salt.rawsalt, decoded + 4, saltlen);
++	salt.saltlen = saltlen;
++
++	return &salt;
++}
++
++void *pf_ref_get_binary (char *ciphertext)
++{
++	static pf_ref_binary binary;
++	char *cptr = ciphertext + PUF_ID_LEN;
++	int pos = 0;
++
++	for (; *cptr++ != '$' && pos < strlen (ciphertext); pos++); pos++;
++
++	pf_ref_decode64 ((unsigned char *) binary, strlen (ciphertext) - pos, ciphertext + PUF_ID_LEN + pos);
++
++	return &binary;
++}
++

@@ -1,0 +1,16 @@
+scrypt classic:
+B' = 8c126669
+t_cost = 512
+m_cost = 256
+scrypt TMTO = 5:
+B' = 8c126669
+t_cost = 1010
+m_cost = 52
+scrypt ircmaxell:
+B' = 24efce90
+t_cost = 512
+m_cost = 256
+scrypt ircmaxell TMTO1 = 5, TMTO2 = 2:
+B' = 24efce90
+t_cost = 978
+m_cost = 180 elements + 256 indices (363 alloc + 256 ptrs) + 512 counters

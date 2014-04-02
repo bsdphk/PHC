@@ -1,0 +1,1 @@
+bin\test.exe speed -pswlen64,-testnum100000> results\TestSpeed2.txt

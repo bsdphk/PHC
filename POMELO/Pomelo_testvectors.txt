@@ -1,0 +1,2558 @@
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 0
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 1
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 2
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 3
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 4
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 5
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 6
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 7
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 8
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 9
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 10
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 11
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 12
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 13
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 14
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     0 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6d864deaa83793cb7f8f1ab0afba482d5a513235572c2e78b18b976bbcf4a825
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     1 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+258c64fb913efd8270c50b88e50dde0c302bc9c4cc103115428e47eb90aee642
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     2 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+52ef08ba8e8030cfcd233e51d73f744eda43644da47e7c02217e94b7b5c9ff2c
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     3 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+84409b8122fc88fb57902b60ee1bfefc062b6adcf5c7798bb03f3b393f9d4420
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     4 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6931b703a73166a615d341ec6b6c1098ad04666d7dc959f441945b61e59f5a48
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     5 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+471cfdc20cf8bc287824d39bc75130ceff06a7b38fcc1c4e988ab5cb70beefa9
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     6 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+097fe39dffa63c79abea68d3d2045e9afa9a9a45114f706a433a9ac6d9bf53b2
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     7 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+038c84713b4efbfd181be439af98bee988ef4ca3b3efaee2ed0324d6e9c87e20
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     8 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+93c1a522931cfa89c836b91b7a16680abb10710399b1f2bc342fcc08d446bd7e
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     9 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+961c920c7af902978e7a8b217b805a862c2d2972fe9a7d970c0bff09a1b5a5e3
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     10 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5466a41c07150388c098006e1ce07a561b18881b78100be4e75efff0f4cab281
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     11 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+5004a1394970a060156d5f911fe5b4617c50ccaf4a6f1ea403123ed33cda8a7a
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     12 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+428c305edf67893b6d6627dc05ee4ab5af724422a0302b7ab21805197d2e95a4
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     13 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+6a6a33eab571f0e2799a32c6422d85f443220a634e3e80651af8cca000ff4839
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     14 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+60df3ac2e5ad666d7df94d061685115fdb2ae1c0590674288d3a7765fa41abee
+
+
+The password is zero, except that the first byte is 15
+The salt is zero, except that the first byte is     15 
+The password length is 128 bytes;
+The salt length is 16 bytes;
+The output length is 32 bytes;
+The value of m_cost is 12, the value of t_cost is 1; 
+The output is: 
+f476bf63352b3e2ac09142a6d5095f8b21d9dc2b0148dcccf66b63aa79ba340e

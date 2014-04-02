@@ -1,0 +1,1 @@
+bin\test.exe qwerty12345 -len32,-saltAE0F5570C2BD3E9024CA767FB86D1087,-tcost1000000> results\ControlExampleResult2.txt

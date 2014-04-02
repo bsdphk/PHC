@@ -1,0 +1,32 @@
+These are some of the programs written and used during design and
+development of yescrypt in order to evaluate possible design decisions
+and make the better ones.  Also included are text files with output of
+some of these programs.
+
+sim-at is a numerical simulation of four different variations of the
+first loop in SMix, estimating the resulting ASIC area-time costs for
+the attacker, as well as other properties.  (One of the four options was
+chosen for the current implementation as a result.)
+
+sim-normat computes normalized area-time costs (for the same defensive
+running time) for the different variations of SMix at different points
+in time (iterations of SMix's second loop).  It has helped confirm
+optimal stop points for different modes of yescrypt (these are now
+chosen for t = 0), as well as choose reasonable stop points for higher
+values of t considering to what extent less optimal those are.
+
+sim-tmto is an implementation of a time-memory tradeoff (TMTO) attack on
+a modification to SMix's second loop designed to discourage such TMTOs.
+It shows to what extent that modification is effective against at least
+this particular attack.  (The corresponding modification is implemented
+in yescrypt.  The YESCRYPT_RW flag enables it, although it also affects
+SMix's first loop, which likely has an even greater effect against TMTO.
+This extra effect of YESCRYPT_RW is not simulated in this program.)
+
+analyze is a program to analyze the distribution of values of bytes,
+16-bit words, and 32-bit words in yescrypt memory dumps, such as in
+those produced with userom.c's "#define DUMP_LOCAL".  It was used to
+confirm that pwxform retains sufficient entropy and doesn't introduce
+significant biases.  For stress-testing, dumps were made not only at
+yescrypt's usual settings, but also at unusually low and ridiculously
+high pwxform round counts.

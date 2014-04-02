@@ -1,0 +1,21 @@
+module Pebble pe
+
+class Root
+
+class Pebble
+
+class Location array
+    uint32 numPointers
+    uint32 recomputations
+    uint8 useCount
+    bool fixed
+    bool visited
+
+class Group
+    uint32 availablePebbles
+
+relationship Root Location array mandatory
+relationship Root Group doubly_linked mandatory
+relationship Location Pebble mandatory
+relationship Location Location doubly_linked
+relationship Group Pebble doubly_linked

@@ -1,0 +1,949 @@
+--- JohnTheRipper/src/pufferfish_fmt_plug.c	1969-12-31 16:00:00.000000000 -0800
++++ JohnTheRipper-mine/src/pufferfish_fmt_plug.c	2014-03-30 06:22:01.216755363 -0700
+@@ -0,0 +1,190 @@
++/* Authored March 2014 by epixoip
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted.
++ *
++ * There's ABSOLUTELY NO WARRANTY, express or implied.
++ */
++
++#include <stdlib.h>
++#include <string.h>
++#include <stdint.h>
++#include "arch.h"
++#include "misc.h"
++#include "common.h"
++#include "formats.h"
++#include "pf_std.c"
++
++#define FORMAT_LABEL			"pufferfish"
++#define FORMAT_NAME			"optimized impl."
++
++#define BENCHMARK_COMMENT		" (tcost 05, mcost 04 (16 KiB))"
++#define BENCHMARK_LENGTH		-1
++
++#define PLAINTEXT_LENGTH		111
++
++#define BINARY_SIZE			8
++#define BINARY_ALIGN			8
++#define SALT_SIZE			sizeof (pf_salt)
++#define SALT_ALIGN			8
++
++#define MIN_KEYS_PER_CRYPT		1
++#define MAX_KEYS_PER_CRYPT		1
++
++static struct fmt_tests tests[] = {
++	{ "$PF$KBSuLHY8CThvmINxtvBnBmi/88W$4Yl2W2KJzRkyeAugryEI2gQGgl8IpyW2I2rmuUtWSTC", "" },
++	{ "$PF$KBSuLE3zuUAMWGUXZ5y9PeIzji6$3ocWXSZugUG8vlLaJ55Nsr0CUBSQS6SZzXS3WUTZFNi", "a" },
++	{ "$PF$KBSuLK9wi.M3UPYnLwhl0IEMR7y$x/gnCeOou0mVDwQ0huK8jKCLFfuuKtghr4hpQvvW97a", "aa" },
++	{ "$PF$KBSuLDR4Sp/9oPBNJNCLzg77Ig6$7TdVUnJkPrWP6FTJ1Tni.OROUr62OLhB0QBzM3YqQHe", "aaa" },
++	{ "$PF$KBSuLFjVtp0qXXE6s7jsVjskkLK$Xo0sv4YIxUi9JzLK3rr2UIMsddY4ynHMHHIwLRfB4dK", "123456" },
++	{ "$PF$KBSuLJNKa7Rt77aoYz8vdGjWFgG$io.p6EIQ3EZp2ZvYm8i0zJ/WBQifOPOYJZ3wuhB9v2C", "epixoip" },
++	{ "$PF$KBSuLAT3LVl.RVbpCaHErCiel3O$sVE8J1TsCthjUWFARTmebcH90F.Gd2VbC6T/zyGAqwe", "password" },
++	{ "$PF$KBSuLHA/N/dPs/47cB3Q/z34X1C$zS3QTzqBJoL49gOZaN.S.uWmkZ5JTH.czyv.vyOqQQG", "mot\xf6rhead" },
++	{ "$PF$KBSuL.JxRfIKF2zHwPF9n3/U4au$8cONj/KJikciDflac1oyzwlrT.jv65Sr1uy/47fKs6K", "this has spaces!" },
++	{ "$PF$KBSuLKt.ALJU/ZQ7d/uG6kcsarK$SbTKSiOmYqYxzXHjpT9HBMxc2YjFcbT.dteb9kX2aZ6", "\x55\xaa\xff\x55\xaa\xff\x55\xaa\xff\x55\xaa\xff" },
++	{ NULL }
++};
++
++static pf_salt saved_salt;
++static unsigned char saved_key[PLAINTEXT_LENGTH + 1];
++
++static void init (struct fmt_main *self)
++{
++	return;
++}
++
++static int valid (char *ciphertext, struct fmt_main *self)
++{
++	char tcost_str[5] = { '0', 'x', 0 };
++	char mcost_str[11] = { '0', 'x', 0 };
++	unsigned char decoded[255] = { 0 };
++	int pos = 0;
++	char *cptr;
++
++	if (strncmp (PUF_ID, ciphertext, PUF_ID_LEN))
++		return 0;
++
++	for (cptr = ciphertext + PUF_ID_LEN; *cptr++ != '$' && pos < strlen(ciphertext); pos++);
++
++	if (5 > pf_decode64 (decoded, pos, ciphertext + PUF_ID_LEN))
++		return 0;
++
++	memmove (tcost_str + 2, decoded, 2);
++	if (256 < strtol (tcost_str, NULL, 16))
++		return 0;
++
++	memmove (mcost_str + 2, decoded + 2, 2);
++	if (256 < strtol (mcost_str, NULL, 16))
++		return 0;
++
++	return 1;
++}
++
++static int get_hash_0 (int index) { return pf_out[0] & 0xf; }
++static int get_hash_1 (int index) { return pf_out[0] & 0xff; }
++static int get_hash_2 (int index) { return pf_out[0] & 0xfff; }
++static int get_hash_3 (int index) { return pf_out[0] & 0xffff; }
++static int get_hash_4 (int index) { return pf_out[0] & 0xfffff; }
++static int get_hash_5 (int index) { return pf_out[0] & 0xffffff; }
++static int get_hash_6 (int index) { return pf_out[0] & 0x7ffffff; }
++
++static int salt_hash (void *salt)
++{
++	return *((pf_salt *) salt)->salt & (SALT_HASH_SIZE - 1);
++}
++
++static void set_salt (void *salt)
++{
++	memcpy (&saved_salt, salt, SALT_SIZE);
++}
++
++static void set_key (char *key, int index)
++{
++	strnzcpy ((char *) saved_key, key, PLAINTEXT_LENGTH + 1);
++}
++
++static char *get_key (int index)
++{
++	return (char *) saved_key;
++}
++
++static int crypt_all (int *pcount, struct db_salt *salt)
++{
++	int count = *pcount;
++
++	pf_std_crypt (saved_key, &saved_salt);
++
++	return count;
++}
++
++static int cmp_all(void *binary, int count)
++{
++	return *(uint64_t *) binary == pf_out[0];
++}
++
++static int cmp_one(void *binary, int index)
++{
++	return *(uint64_t *)binary == pf_out[0];
++}
++
++static int cmp_exact(char *source, int index)
++{
++	return !memcmp (pf_std_get_binary (source), pf_out, sizeof (pf_binary));
++}
++
++struct fmt_main fmt_pufferfish = {
++	{
++		FORMAT_LABEL,
++		FORMAT_NAME,
++		PF_ALGORITHM_NAME,
++		BENCHMARK_COMMENT,
++		BENCHMARK_LENGTH,
++		PLAINTEXT_LENGTH,
++		BINARY_SIZE,
++		BINARY_ALIGN,
++		SALT_SIZE,
++		SALT_ALIGN,
++		MIN_KEYS_PER_CRYPT,
++		MAX_KEYS_PER_CRYPT,
++		FMT_CASE | FMT_8_BIT,
++		tests
++	}, {
++		init,
++		fmt_default_done,
++		fmt_default_reset,
++		fmt_default_prepare,
++		valid,
++		fmt_default_split,
++		pf_std_get_binary,
++		pf_std_get_salt,
++		fmt_default_source,
++		{
++			fmt_default_binary_hash_0,
++			fmt_default_binary_hash_1,
++			fmt_default_binary_hash_2,
++			fmt_default_binary_hash_3,
++			fmt_default_binary_hash_4,
++			fmt_default_binary_hash_5,
++			fmt_default_binary_hash_6
++		},
++		salt_hash,
++		set_salt,
++		set_key,
++		get_key,
++		fmt_default_clear_keys,
++		crypt_all,
++		{
++			get_hash_0,
++			get_hash_1,
++			get_hash_2,
++			get_hash_3,
++			get_hash_4,
++			get_hash_5,
++			get_hash_6
++		},
++		cmp_all,
++		cmp_one,
++		cmp_exact
++	}
++};
++
+--- JohnTheRipper/src/pf_std.h	1969-12-31 16:00:00.000000000 -0800
++++ JohnTheRipper-mine/src/pf_std.h	2014-03-31 11:08:00.812644305 -0700
+@@ -0,0 +1,357 @@
++/* Authored March 2014 by epixoip
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted.
++ *
++ * There's ABSOLUTELY NO WARRANTY, express or implied.
++ */
++
++#ifndef _JOHN_PF_STD_H
++#define _JOHN_PF_STD_H
++
++#include <stdint.h>
++#include <openssl/sha.h>
++#include "arch.h"
++#include "common.h"
++
++#define MAXLEN 111
++#define PF_ALGORITHM_NAME "pufferfish 64/" ARCH_BITS_STR
++#define PUF_ID "$PF$"				/* hash identification str */
++#define PUF_ID_LEN strlen (PUF_ID)		/* length of the identifier */
++#define DIGEST_LEN SHA512_DIGEST_LENGTH		/* digest length */
++
++typedef struct {
++	long t_cost;
++	long m_cost;
++	uint64_t salt[8];
++} pf_salt;
++
++typedef uint64_t pf_binary[4];
++typedef enum { false, true } bool;
++
++extern pf_binary pf_out;
++
++extern void pf_std_set_key (char *key);
++extern void pf_std_crypt (unsigned char *password, pf_salt *salt);
++extern void *pf_std_get_salt (char *ciphertext);
++extern void *pf_std_get_binary (char *ciphertext);
++extern int pf_decode64 (unsigned char *dst, int size, char *src);
++
++#define char64(c)((c) > 127 ? 255 : pf_index64[(c)])
++
++const static unsigned char pf_itoa64[] =
++	"./ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
++
++const static unsigned char pf_index64[0x80] = {
++	255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
++	255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,255,
++	255,255,255,255,255,255,255,255,255,255,255,255,255,255,  0,  1,
++	 54, 55, 56, 57, 58, 59, 60, 61, 62, 63,255,255,255,255,255,255,
++	255,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
++	 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27,255,255,255,255,255,
++	255, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42,
++	 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53,255,255,255,255,255
++};
++
++#define uchar_to_uint64(n,b,c)             \
++{                                          \
++    (n) = ( (uint64_t) (b)[(c)  ] << 56 )  \
++        | ( (uint64_t) (b)[(c)+1] << 48 )  \
++        | ( (uint64_t) (b)[(c)+2] << 40 )  \
++        | ( (uint64_t) (b)[(c)+3] << 32 )  \
++        | ( (uint64_t) (b)[(c)+4] << 24 )  \
++        | ( (uint64_t) (b)[(c)+5] << 16 )  \
++        | ( (uint64_t) (b)[(c)+6] <<  8 )  \
++        | ( (uint64_t) (b)[(c)+7]       ); \
++}
++
++#define uint64_to_uchar(n,b,c)                          \
++{                                                       \
++    (b)[(c)  ] = (unsigned char) ( (n) >> 56 & 0xff );  \
++    (b)[(c)+1] = (unsigned char) ( (n) >> 48 & 0xff );  \
++    (b)[(c)+2] = (unsigned char) ( (n) >> 40 & 0xff );  \
++    (b)[(c)+3] = (unsigned char) ( (n) >> 32 & 0xff );  \
++    (b)[(c)+4] = (unsigned char) ( (n) >> 24 & 0xff );  \
++    (b)[(c)+5] = (unsigned char) ( (n) >> 16 & 0xff );  \
++    (b)[(c)+6] = (unsigned char) ( (n) >>  8 & 0xff );  \
++    (b)[(c)+7] = (unsigned char) ( (n)       & 0xff );  \
++}
++
++#define shr(x,n) (x >> n)
++#define shl(x,n) (x << n)
++#define rotr64(x,n) (shr(x,n) | (x << (64 - n)))
++#define rotl64(x,n) (shl(x,n) | (x >> (64 - n)))
++
++#define S0(x) (rotr64(x,28) ^ rotr64(x,34) ^ rotr64(x,39))
++#define S1(x) (rotr64(x,14) ^ rotr64(x,18) ^ rotr64(x,41))
++#define s0(x) (rotr64(x, 1) ^ rotr64(x, 8) ^ shr(x, 7)   )
++#define s1(x) (rotr64(x,19) ^ rotr64(x,61) ^ shr(x, 6)   )
++
++#define Ch(x,y,z)  (z ^ (x & (y ^ z)))
++#define Maj(x,y,z) ((x & y) | (z & (x | y)))
++
++#define SHA2_STEP(a,b,c,d,e,f,g,h,x,K)          \
++{                                               \
++    tmp1 = h + S1(e) + Ch(e,f,g) + K + x;       \
++    tmp2 = S0(a) + Maj(a,b,c);                  \
++    h  = tmp1 + tmp2;                           \
++    d += tmp1;                                  \
++}
++
++#define SHA512_BODY                                                     \
++        a = aa;                                                         \
++        b = bb;                                                         \
++        c = cc;                                                         \
++        d = dd;                                                         \
++        e = ee;                                                         \
++        f = ff;                                                         \
++        g = gg;                                                         \
++        h = hh;                                                         \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w0, 0x428a2f98d728ae22);     \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w1, 0x7137449123ef65cd);     \
++        SHA2_STEP(g, h, a, b, c, d, e, f,  w2, 0xb5c0fbcfec4d3b2f);     \
++        SHA2_STEP(f, g, h, a, b, c, d, e,  w3, 0xe9b5dba58189dbbc);     \
++        SHA2_STEP(e, f, g, h, a, b, c, d,  w4, 0x3956c25bf348b538);     \
++        SHA2_STEP(d, e, f, g, h, a, b, c,  w5, 0x59f111f1b605d019);     \
++        SHA2_STEP(c, d, e, f, g, h, a, b,  w6, 0x923f82a4af194f9b);     \
++        SHA2_STEP(b, c, d, e, f, g, h, a,  w7, 0xab1c5ed5da6d8118);     \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w8, 0xd807aa98a3030242);     \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w9, 0x12835b0145706fbe);     \
++        SHA2_STEP(g, h, a, b, c, d, e, f, w10, 0x243185be4ee4b28c);     \
++        SHA2_STEP(f, g, h, a, b, c, d, e, w11, 0x550c7dc3d5ffb4e2);     \
++        SHA2_STEP(e, f, g, h, a, b, c, d, w12, 0x72be5d74f27b896f);     \
++        SHA2_STEP(d, e, f, g, h, a, b, c, w13, 0x80deb1fe3b1696b1);     \
++        SHA2_STEP(c, d, e, f, g, h, a, b, w14, 0x9bdc06a725c71235);     \
++        SHA2_STEP(b, c, d, e, f, g, h, a, w15, 0xc19bf174cf692694);     \
++        w0 = s1(w14) + w9 + s0(w1) + w0;                                \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w0, 0xe49b69c19ef14ad2);     \
++        w1 = s1(w15) + w10 + s0(w2) + w1;                               \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w1, 0xefbe4786384f25e3);     \
++        w2 = s1(w0) + w11 + s0(w3) + w2;                                \
++        SHA2_STEP(g, h, a, b, c, d, e, f,  w2, 0x0fc19dc68b8cd5b5);     \
++        w3 = s1(w1) + w12 + s0(w4) + w3;                                \
++        SHA2_STEP(f, g, h, a, b, c, d, e,  w3, 0x240ca1cc77ac9c65);     \
++        w4 = s1(w2) + w13 + s0(w5) + w4;                                \
++        SHA2_STEP(e, f, g, h, a, b, c, d,  w4, 0x2de92c6f592b0275);     \
++        w5 = s1(w3) + w14 + s0(w6) + w5;                                \
++        SHA2_STEP(d, e, f, g, h, a, b, c,  w5, 0x4a7484aa6ea6e483);     \
++        w6 = s1(w4) + w15 + s0(w7) + w6;                                \
++        SHA2_STEP(c, d, e, f, g, h, a, b,  w6, 0x5cb0a9dcbd41fbd4);     \
++        w7 = s1(w5) + w0 + s0(w8) + w7;                                 \
++        SHA2_STEP(b, c, d, e, f, g, h, a,  w7, 0x76f988da831153b5);     \
++        w8 = s1(w6) + w1 + s0(w9) + w8;                                 \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w8, 0x983e5152ee66dfab);     \
++        w9 = s1(w7) + w2 + s0(w10) + w9;                                \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w9, 0xa831c66d2db43210);     \
++        w10 = s1(w8) + w3 + s0(w11) + w10;                              \
++        SHA2_STEP(g, h, a, b, c, d, e, f, w10, 0xb00327c898fb213f);     \
++        w11 = s1(w9) + w4 + s0(w12) + w11;                              \
++        SHA2_STEP(f, g, h, a, b, c, d, e, w11, 0xbf597fc7beef0ee4);     \
++        w12 = s1(w10) + w5 + s0(w13) + w12;                             \
++        SHA2_STEP(e, f, g, h, a, b, c, d, w12, 0xc6e00bf33da88fc2);     \
++        w13 = s1(w11) + w6 + s0(w14) + w13;                             \
++        SHA2_STEP(d, e, f, g, h, a, b, c, w13, 0xd5a79147930aa725);     \
++        w14 = s1(w12) + w7 + s0(w15) + w14;                             \
++        SHA2_STEP(c, d, e, f, g, h, a, b, w14, 0x06ca6351e003826f);     \
++        w15 = s1(w13) + w8 + s0(w0) + w15;                              \
++        SHA2_STEP(b, c, d, e, f, g, h, a, w15, 0x142929670a0e6e70);     \
++        w0 = s1(w14) + w9 + s0(w1) + w0;                                \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w0, 0x27b70a8546d22ffc);     \
++        w1 = s1(w15) + w10 + s0(w2) + w1;                               \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w1, 0x2e1b21385c26c926);     \
++        w2 = s1(w0) + w11 + s0(w3) + w2;                                \
++        SHA2_STEP(g, h, a, b, c, d, e, f,  w2, 0x4d2c6dfc5ac42aed);     \
++        w3 = s1(w1) + w12 + s0(w4) + w3;                                \
++        SHA2_STEP(f, g, h, a, b, c, d, e,  w3, 0x53380d139d95b3df);     \
++        w4 = s1(w2) + w13 + s0(w5) + w4;                                \
++        SHA2_STEP(e, f, g, h, a, b, c, d,  w4, 0x650a73548baf63de);     \
++        w5 = s1(w3) + w14 + s0(w6) + w5;                                \
++        SHA2_STEP(d, e, f, g, h, a, b, c,  w5, 0x766a0abb3c77b2a8);     \
++        w6 = s1(w4) + w15 + s0(w7) + w6;                                \
++        SHA2_STEP(c, d, e, f, g, h, a, b,  w6, 0x81c2c92e47edaee6);     \
++        w7 = s1(w5) + w0 + s0(w8) + w7;                                 \
++        SHA2_STEP(b, c, d, e, f, g, h, a,  w7, 0x92722c851482353b);     \
++        w8 = s1(w6) + w1 + s0(w9) + w8;                                 \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w8, 0xa2bfe8a14cf10364);     \
++        w9 = s1(w7) + w2 + s0(w10) + w9;                                \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w9, 0xa81a664bbc423001);     \
++        w10 = s1(w8) + w3 + s0(w11) + w10;                              \
++        SHA2_STEP(g, h, a, b, c, d, e, f, w10, 0xc24b8b70d0f89791);     \
++        w11 = s1(w9) + w4 + s0(w12) + w11;                              \
++        SHA2_STEP(f, g, h, a, b, c, d, e, w11, 0xc76c51a30654be30);     \
++        w12 = s1(w10) + w5 + s0(w13) + w12;                             \
++        SHA2_STEP(e, f, g, h, a, b, c, d, w12, 0xd192e819d6ef5218);     \
++        w13 = s1(w11) + w6 + s0(w14) + w13;                             \
++        SHA2_STEP(d, e, f, g, h, a, b, c, w13, 0xd69906245565a910);     \
++        w14 = s1(w12) + w7 + s0(w15) + w14;                             \
++        SHA2_STEP(c, d, e, f, g, h, a, b, w14, 0xf40e35855771202a);     \
++        w15 = s1(w13) + w8 + s0(w0) + w15;                              \
++        SHA2_STEP(b, c, d, e, f, g, h, a, w15, 0x106aa07032bbd1b8);     \
++        w0 = s1(w14) + w9 + s0(w1) + w0;                                \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w0, 0x19a4c116b8d2d0c8);     \
++        w1 = s1(w15) + w10 + s0(w2) + w1;                               \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w1, 0x1e376c085141ab53);     \
++        w2 = s1(w0) + w11 + s0(w3) + w2;                                \
++        SHA2_STEP(g, h, a, b, c, d, e, f,  w2, 0x2748774cdf8eeb99);     \
++        w3 = s1(w1) + w12 + s0(w4) + w3;                                \
++        SHA2_STEP(f, g, h, a, b, c, d, e,  w3, 0x34b0bcb5e19b48a8);     \
++        w4 = s1(w2) + w13 + s0(w5) + w4;                                \
++        SHA2_STEP(e, f, g, h, a, b, c, d,  w4, 0x391c0cb3c5c95a63);     \
++        w5 = s1(w3) + w14 + s0(w6) + w5;                                \
++        SHA2_STEP(d, e, f, g, h, a, b, c,  w5, 0x4ed8aa4ae3418acb);     \
++        w6 = s1(w4) + w15 + s0(w7) + w6;                                \
++        SHA2_STEP(c, d, e, f, g, h, a, b,  w6, 0x5b9cca4f7763e373);     \
++        w7 = s1(w5) + w0 + s0(w8) + w7;                                 \
++        SHA2_STEP(b, c, d, e, f, g, h, a,  w7, 0x682e6ff3d6b2b8a3);     \
++        w8 = s1(w6) + w1 + s0(w9) + w8;                                 \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w8, 0x748f82ee5defb2fc);     \
++        w9 = s1(w7) + w2 + s0(w10) + w9;                                \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w9, 0x78a5636f43172f60);     \
++        w10 = s1(w8) + w3 + s0(w11) + w10;                              \
++        SHA2_STEP(g, h, a, b, c, d, e, f, w10, 0x84c87814a1f0ab72);     \
++        w11 = s1(w9) + w4 + s0(w12) + w11;                              \
++        SHA2_STEP(f, g, h, a, b, c, d, e, w11, 0x8cc702081a6439ec);     \
++        w12 = s1(w10) + w5 + s0(w13) + w12;                             \
++        SHA2_STEP(e, f, g, h, a, b, c, d, w12, 0x90befffa23631e28);     \
++        w13 = s1(w11) + w6 + s0(w14) + w13;                             \
++        SHA2_STEP(d, e, f, g, h, a, b, c, w13, 0xa4506cebde82bde9);     \
++        w14 = s1(w12) + w7 + s0(w15) + w14;                             \
++        SHA2_STEP(c, d, e, f, g, h, a, b, w14, 0xbef9a3f7b2c67915);     \
++        w15 = s1(w13) + w8 + s0(w0) + w15;                              \
++        SHA2_STEP(b, c, d, e, f, g, h, a, w15, 0xc67178f2e372532b);     \
++        w0 = s1(w14) + w9 + s0(w1) + w0;                                \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w0, 0xca273eceea26619c);     \
++        w1 = s1(w15) + w10 + s0(w2) + w1;                               \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w1, 0xd186b8c721c0c207);     \
++        w2 = s1(w0) + w11 + s0(w3) + w2;                                \
++        SHA2_STEP(g, h, a, b, c, d, e, f,  w2, 0xeada7dd6cde0eb1e);     \
++        w3 = s1(w1) + w12 + s0(w4) + w3;                                \
++        SHA2_STEP(f, g, h, a, b, c, d, e,  w3, 0xf57d4f7fee6ed178);     \
++        w4 = s1(w2) + w13 + s0(w5) + w4;                                \
++        SHA2_STEP(e, f, g, h, a, b, c, d,  w4, 0x06f067aa72176fba);     \
++        w5 = s1(w3) + w14 + s0(w6) + w5;                                \
++        SHA2_STEP(d, e, f, g, h, a, b, c,  w5, 0x0a637dc5a2c898a6);     \
++        w6 = s1(w4) + w15 + s0(w7) + w6;                                \
++        SHA2_STEP(c, d, e, f, g, h, a, b,  w6, 0x113f9804bef90dae);     \
++        w7 = s1(w5) + w0 + s0(w8) + w7;                                 \
++        SHA2_STEP(b, c, d, e, f, g, h, a,  w7, 0x1b710b35131c471b);     \
++        w8 = s1(w6) + w1 + s0(w9) + w8;                                 \
++        SHA2_STEP(a, b, c, d, e, f, g, h,  w8, 0x28db77f523047d84);     \
++        w9 = s1(w7) + w2 + s0(w10) + w9;                                \
++        SHA2_STEP(h, a, b, c, d, e, f, g,  w9, 0x32caab7b40c72493);     \
++        w10 = s1(w8) + w3 + s0(w11) + w10;                              \
++        SHA2_STEP(g, h, a, b, c, d, e, f, w10, 0x3c9ebe0a15c9bebc);     \
++        w11 = s1(w9) + w4 + s0(w12) + w11;                              \
++        SHA2_STEP(f, g, h, a, b, c, d, e, w11, 0x431d67c49c100d4c);     \
++        w12 = s1(w10) + w5 + s0(w13) + w12;                             \
++        SHA2_STEP(e, f, g, h, a, b, c, d, w12, 0x4cc5d4becb3e42b6);     \
++        w13 = s1(w11) + w6 + s0(w14) + w13;                             \
++        SHA2_STEP(d, e, f, g, h, a, b, c, w13, 0x597f299cfc657e2a);     \
++        w14 = s1(w12) + w7 + s0(w15) + w14;                             \
++        SHA2_STEP(c, d, e, f, g, h, a, b, w14, 0x5fcb6fab3ad6faec);     \
++        w15 = s1(w13) + w8 + s0(w0) + w15;                              \
++        SHA2_STEP(b, c, d, e, f, g, h, a, w15, 0x6c44198c4a475817);     \
++        aa += a;                                                        \
++        bb += b;                                                        \
++        cc += c;                                                        \
++        dd += d;                                                        \
++        ee += e;                                                        \
++        ff += f;                                                        \
++        gg += g;                                                        \
++        hh += h;
++
++
++#define F(x)								\
++(									\
++    ((S[0][(x >> (64 - log2_sbox_words))                   ]  ^		\
++      S[1][(x >> (48 - log2_sbox_words)) & (sbox_words - 1)]) +		\
++      S[2][(x >> (32 - log2_sbox_words)) & (sbox_words - 1)]) ^		\
++      S[3][(x >> (16 - log2_sbox_words)) & (sbox_words - 1)]		\
++)
++
++#define ENCIPHER                \
++    L ^= P[0];                  \
++    R = (R ^ F(L)) ^ P[ 1];     \
++    L = (L ^ F(R)) ^ P[ 2];     \
++    R = (R ^ F(L)) ^ P[ 3];     \
++    L = (L ^ F(R)) ^ P[ 4];     \
++    R = (R ^ F(L)) ^ P[ 5];     \
++    L = (L ^ F(R)) ^ P[ 6];     \
++    R = (R ^ F(L)) ^ P[ 7];     \
++    L = (L ^ F(R)) ^ P[ 8];     \
++    R = (R ^ F(L)) ^ P[ 9];     \
++    L = (L ^ F(R)) ^ P[10];     \
++    R = (R ^ F(L)) ^ P[11];     \
++    L = (L ^ F(R)) ^ P[12];     \
++    R = (R ^ F(L)) ^ P[13];     \
++    L = (L ^ F(R)) ^ P[14];     \
++    R = (R ^ F(L)) ^ P[15];     \
++    L = (L ^ F(R)) ^ P[16];     \
++    R ^= P[17];                 \
++    LL = R;                     \
++    RR = L;			\
++    L  = LL;			\
++    R  = RR;
++
++
++#define KEYCIPHER(a,b,c,d)      \
++{				\
++    L ^= (a);                   \
++    R ^= (b);                   \
++    ENCIPHER;                   \
++    (c) = L;                    \
++    (d) = R;			\
++}
++
++
++#define KEYCIPHER_NULL(a,b)     \
++{				\
++    ENCIPHER;	        	\
++    (a) = L;                  	\
++    (b) = R;			\
++}
++
++
++#define EXPANDKEY(x)                            \
++{						\
++    P[ 0] ^= x[0];          			\
++    P[ 1] ^= x[1];          			\
++    P[ 2] ^= x[2];          			\
++    P[ 3] ^= x[3];          			\
++    P[ 4] ^= x[4];          			\
++    P[ 5] ^= x[5];          			\
++    P[ 6] ^= x[6];          			\
++    P[ 7] ^= x[7];          			\
++    P[ 8] ^= x[0];          			\
++    P[ 9] ^= x[1];          			\
++    P[10] ^= x[2];          			\
++    P[11] ^= x[3];          			\
++    P[12] ^= x[4];          			\
++    P[13] ^= x[5];          			\
++    P[14] ^= x[6];          			\
++    P[15] ^= x[7];          			\
++    P[16] ^= x[0];          			\
++    P[17] ^= x[1];          			\
++						\
++    KEYCIPHER_NULL (P[ 0], P[ 1]);              \
++    KEYCIPHER_NULL (P[ 2], P[ 3]);              \
++    KEYCIPHER_NULL (P[ 4], P[ 5]);              \
++    KEYCIPHER_NULL (P[ 6], P[ 7]);              \
++    KEYCIPHER_NULL (P[ 8], P[ 9]);              \
++    KEYCIPHER_NULL (P[10], P[11]);              \
++    KEYCIPHER_NULL (P[12], P[13]);              \
++    KEYCIPHER_NULL (P[14], P[15]);              \
++    KEYCIPHER_NULL (P[16], P[17]);              \
++                                                \
++    for (i = 0; i < sbox_words; i+=2)           \
++        KEYCIPHER_NULL (S[0][i], S[0][i+1]);    \
++    for (i = 0; i < sbox_words; i+=2)           \
++        KEYCIPHER_NULL (S[1][i], S[1][i+1]);    \
++    for (i = 0; i < sbox_words; i+=2)           \
++        KEYCIPHER_NULL (S[2][i], S[2][i+1]);    \
++    for (i = 0; i < sbox_words; i+=2)           \
++        KEYCIPHER_NULL (S[3][i], S[3][i+1]);    \
++}
++
++#endif
++
+--- JohnTheRipper/src/pf_std.c	1969-12-31 16:00:00.000000000 -0800
++++ JohnTheRipper-mine/src/pf_std.c	2014-03-31 11:11:53.940644055 -0700
+@@ -0,0 +1,393 @@
++/* Authored March 2014 by epixoip
++ *
++ * Redistribution and use in source and binary forms, with or without
++ * modification, are permitted.
++ *
++ * There's ABSOLUTELY NO WARRANTY, express or implied.
++ */
++
++#include <stdlib.h>
++#include <string.h>
++#include <stdint.h>
++#include <alloca.h>
++#include "arch.h"
++#include "common.h"
++#include "pf_std.h"
++
++#pragma GCC optimize 3
++
++pf_binary pf_out;
++
++static __inline__ void pf_sha512 (const unsigned char *in, size_t len, uint64_t digest[8])
++{
++	int i, j;
++	unsigned char buf[128] = {0};
++
++	uint64_t tmp1 = 0, tmp2 = 0;
++
++	uint64_t a,  b,  c,  d,  e,  f,  g,  h,
++		 aa, bb, cc, dd, ee, ff, gg, hh;
++
++	uint64_t w0  = 0, w1  = 0, w2  = 0, w3  = 0,
++		 w4  = 0, w5  = 0, w6  = 0, w7  = 0,
++		 w8  = 0, w9  = 0, w10 = 0, w11 = 0,
++		 w12 = 0, w13 = 0, w14 = 0, w15 = 0;
++
++	uint64_t *w[14];
++
++	w[ 0] = &w0;  w[ 1] = &w1;  w[ 2] = &w2;  w[ 3] = &w3,
++	w[ 4] = &w4;  w[ 5] = &w5;  w[ 6] = &w6;  w[ 7] = &w7;
++	w[ 8] = &w8;  w[ 9] = &w9;  w[10] = &w10; w[11] = &w11;
++	w[12] = &w12; w[13] = &w13; w[14] = &w14;
++
++	for (i = 0; i < len; i++)
++		buf[i] = in[i];
++	buf[len] = 0x80;
++
++	for (i=0, j=0; i < len + 1 && j < 15; i+=8, j++)
++		uchar_to_uint64 (*w[j], buf, i);
++	w15 = len << 3;
++
++	aa = 0x6a09e667f3bcc908;
++	bb = 0xbb67ae8584caa73b;
++	cc = 0x3c6ef372fe94f82b;
++	dd = 0xa54ff53a5f1d36f1;
++	ee = 0x510e527fade682d1;
++	ff = 0x9b05688c2b3e6c1f;
++	gg = 0x1f83d9abfb41bd6b;
++	hh = 0x5be0cd19137e2179;
++
++	SHA512_BODY;
++
++	digest[0] = __builtin_bswap64 (aa);
++	digest[1] = __builtin_bswap64 (bb);
++	digest[2] = __builtin_bswap64 (cc);
++	digest[3] = __builtin_bswap64 (dd);
++	digest[4] = __builtin_bswap64 (ee);
++	digest[5] = __builtin_bswap64 (ff);
++	digest[6] = __builtin_bswap64 (gg);
++	digest[7] = __builtin_bswap64 (hh);
++}
++
++static __inline__ void pf_hmac_sha512 (const unsigned char *key, size_t keylen, const unsigned char *in,  size_t len, uint64_t digest[8])
++{
++	int i;
++	unsigned char ipad[128];
++	unsigned char opad[128];
++	unsigned char buf[ 128] = {0};
++
++	uint64_t tmp1 = 0, tmp2 = 0;
++
++	uint64_t a,  b,  c,  d,  e,  f,  g,  h,
++		 aa, bb, cc, dd, ee, ff, gg, hh,
++		 o0, o1, o2, o3, o4, o5, o6, o7;
++
++	uint64_t w0  = 0, w1  = 0, w2  = 0, w3  = 0,
++		 w4  = 0, w5  = 0, w6  = 0, w7  = 0,
++		 w8  = 0, w9  = 0, w10 = 0, w11 = 0,
++		 w12 = 0, w13 = 0, w14 = 0, w15 = 0;
++
++	memset (ipad, 0x36, 128);
++	memset (opad, 0x5c, 128);
++
++	for (i = 0; i < keylen; i++)
++	{
++		ipad[i] ^= key[i];
++		opad[i] ^= key[i];
++	}
++
++	uchar_to_uint64 ( w0, ipad,  0 << 3);
++	uchar_to_uint64 ( w1, ipad,  1 << 3);
++	uchar_to_uint64 ( w2, ipad,  2 << 3);
++	uchar_to_uint64 ( w3, ipad,  3 << 3);
++	uchar_to_uint64 ( w4, ipad,  4 << 3);
++	uchar_to_uint64 ( w5, ipad,  5 << 3);
++	uchar_to_uint64 ( w6, ipad,  6 << 3);
++	uchar_to_uint64 ( w7, ipad,  7 << 3);
++	uchar_to_uint64 ( w8, ipad,  8 << 3);
++	uchar_to_uint64 ( w9, ipad,  9 << 3);
++	uchar_to_uint64 (w10, ipad, 10 << 3);
++	uchar_to_uint64 (w11, ipad, 11 << 3);
++	uchar_to_uint64 (w12, ipad, 12 << 3);
++	uchar_to_uint64 (w13, ipad, 13 << 3);
++	uchar_to_uint64 (w14, ipad, 14 << 3);
++	uchar_to_uint64 (w15, ipad, 15 << 3);
++
++	aa = 0x6a09e667f3bcc908;
++	bb = 0xbb67ae8584caa73b;
++	cc = 0x3c6ef372fe94f82b;
++	dd = 0xa54ff53a5f1d36f1;
++	ee = 0x510e527fade682d1;
++	ff = 0x9b05688c2b3e6c1f;
++	gg = 0x1f83d9abfb41bd6b;
++	hh = 0x5be0cd19137e2179;
++
++	SHA512_BODY;
++
++	for (i = 0; i < len; i++)
++		buf[i] = in[i];
++	buf[len] = 0x80;
++
++	uchar_to_uint64 ( w0, buf,  0 << 3);
++	uchar_to_uint64 ( w1, buf,  1 << 3);
++	uchar_to_uint64 ( w2, buf,  2 << 3);
++	uchar_to_uint64 ( w3, buf,  3 << 3);
++	uchar_to_uint64 ( w4, buf,  4 << 3);
++	uchar_to_uint64 ( w5, buf,  5 << 3);
++	uchar_to_uint64 ( w6, buf,  6 << 3);
++	uchar_to_uint64 ( w7, buf,  7 << 3);
++	uchar_to_uint64 ( w8, buf,  8 << 3);
++	uchar_to_uint64 ( w9, buf,  9 << 3);
++	uchar_to_uint64 (w10, buf, 10 << 3);
++	uchar_to_uint64 (w11, buf, 11 << 3);
++	uchar_to_uint64 (w12, buf, 12 << 3);
++	uchar_to_uint64 (w13, buf, 13 << 3);
++	uchar_to_uint64 (w14, buf, 14 << 3);
++	w15 = (len + 128) << 3;
++
++	SHA512_BODY;
++
++	o0 = aa;
++	o1 = bb;
++	o2 = cc;
++	o3 = dd;
++	o4 = ee;
++	o5 = ff;
++	o6 = gg;
++	o7 = hh;
++
++	uchar_to_uint64 ( w0, opad,  0 << 3);
++	uchar_to_uint64 ( w1, opad,  1 << 3);
++	uchar_to_uint64 ( w2, opad,  2 << 3);
++	uchar_to_uint64 ( w3, opad,  3 << 3);
++	uchar_to_uint64 ( w4, opad,  4 << 3);
++	uchar_to_uint64 ( w5, opad,  5 << 3);
++	uchar_to_uint64 ( w6, opad,  6 << 3);
++	uchar_to_uint64 ( w7, opad,  7 << 3);
++	uchar_to_uint64 ( w8, opad,  8 << 3);
++	uchar_to_uint64 ( w9, opad,  9 << 3);
++	uchar_to_uint64 (w10, opad, 10 << 3);
++	uchar_to_uint64 (w11, opad, 11 << 3);
++	uchar_to_uint64 (w12, opad, 12 << 3);
++	uchar_to_uint64 (w13, opad, 13 << 3);
++	uchar_to_uint64 (w14, opad, 14 << 3);
++	uchar_to_uint64 (w15, opad, 15 << 3);
++
++	aa = 0x6a09e667f3bcc908;
++	bb = 0xbb67ae8584caa73b;
++	cc = 0x3c6ef372fe94f82b;
++	dd = 0xa54ff53a5f1d36f1;
++	ee = 0x510e527fade682d1;
++	ff = 0x9b05688c2b3e6c1f;
++	gg = 0x1f83d9abfb41bd6b;
++	hh = 0x5be0cd19137e2179;
++
++	SHA512_BODY;
++
++	w0 = o0;
++	w1 = o1;
++	w2 = o2;
++	w3 = o3;
++	w4 = o4;
++	w5 = o5;
++	w6 = o6;
++	w7 = o7;
++	w8  = 0x8000000000000000;
++	w9  = 0;
++	w10 = 0;
++	w11 = 0;
++	w12 = 0;
++	w13 = 0;
++	w14 = 0;
++	w15 = (64 + 128) << 3;
++
++	SHA512_BODY;
++
++	digest[0] = __builtin_bswap64 (aa);
++	digest[1] = __builtin_bswap64 (bb);
++	digest[2] = __builtin_bswap64 (cc);
++	digest[3] = __builtin_bswap64 (dd);
++	digest[4] = __builtin_bswap64 (ee);
++	digest[5] = __builtin_bswap64 (ff);
++	digest[6] = __builtin_bswap64 (gg);
++	digest[7] = __builtin_bswap64 (hh);
++}
++
++void pf_std_crypt (unsigned char *password, pf_salt *salt)
++{
++	int i, j, count;
++	uint64_t *S[4], P[18];
++	uint64_t state[8], key_hash[8];
++	uint64_t L = 0, R = 0, LL = 0, RR = 0;
++	unsigned int sbox_words, log2_sbox_words;
++	uint64_t ctext[4] = { 0x4472616220617320, 0x6120666f6f6c2c20, 0x616c6f6f66206173, 0x206120626172642e };
++
++	log2_sbox_words = salt->m_cost + 5;
++	sbox_words = 1 << log2_sbox_words;
++
++	pf_hmac_sha512 ((const unsigned char *) salt->salt, DIGEST_LEN, password, strlen ((const char *) password), state);
++
++	for (i = 0; i < 4; i++)
++	{
++		S[i] = (uint64_t *) alloca (sbox_words * sizeof (uint64_t));
++
++		for (j=0; j < sbox_words; j+=8)
++		{
++			pf_sha512 ((const unsigned char *) state, DIGEST_LEN, S[i]+j);
++
++			state[0] = S[i][j+0];
++			state[1] = S[i][j+1];
++			state[2] = S[i][j+2];
++			state[3] = S[i][j+3];
++			state[4] = S[i][j+4];
++			state[5] = S[i][j+5];
++			state[6] = S[i][j+6];
++			state[7] = S[i][j+7];
++		}
++	}
++
++	pf_hmac_sha512 ((const unsigned char *) state, DIGEST_LEN, password, strlen ((const char *) password), key_hash);
++
++	P[ 0] = 0x243f6a8885a308d3 ^ key_hash[0];
++	P[ 1] = 0x13198a2e03707344 ^ key_hash[1];
++	P[ 2] = 0xa4093822299f31d0 ^ key_hash[2];
++	P[ 3] = 0x082efa98ec4e6c89 ^ key_hash[3];
++	P[ 4] = 0x452821e638d01377 ^ key_hash[4];
++	P[ 5] = 0xbe5466cf34e90c6c ^ key_hash[5];
++	P[ 6] = 0xc0ac29b7c97c50dd ^ key_hash[6];
++	P[ 7] = 0x3f84d5b5b5470917 ^ key_hash[7];
++	P[ 8] = 0x9216d5d98979fb1b ^ key_hash[0];
++	P[ 9] = 0xd1310ba698dfb5ac ^ key_hash[1];
++	P[10] = 0x2ffd72dbd01adfb7 ^ key_hash[2];
++	P[11] = 0xb8e1afed6a267e96 ^ key_hash[3];
++	P[12] = 0xba7c9045f12c7f99 ^ key_hash[4];
++	P[13] = 0x24a19947b3916cf7 ^ key_hash[5];
++	P[14] = 0x0801f2e2858efc16 ^ key_hash[6];
++	P[15] = 0x636920d871574e69 ^ key_hash[7];
++	P[16] = 0xa458fea3f4933d7e ^ key_hash[0];
++	P[17] = 0x0d95748f728eb658 ^ key_hash[1];
++
++	KEYCIPHER (salt->salt[0], salt->salt[1], P[ 0], P[ 1]);
++	KEYCIPHER (salt->salt[2], salt->salt[3], P[ 2], P[ 3]);
++	KEYCIPHER (salt->salt[4], salt->salt[5], P[ 4], P[ 5]);
++	KEYCIPHER (salt->salt[6], salt->salt[7], P[ 6], P[ 7]);
++	KEYCIPHER (salt->salt[0], salt->salt[1], P[ 8], P[ 9]);
++	KEYCIPHER (salt->salt[2], salt->salt[3], P[10], P[11]);
++	KEYCIPHER (salt->salt[4], salt->salt[5], P[12], P[13]);
++	KEYCIPHER (salt->salt[6], salt->salt[7], P[14], P[15]);
++	KEYCIPHER (salt->salt[0], salt->salt[1], P[16], P[17]);
++
++	for (i = 0; i < sbox_words; i+=2)
++		KEYCIPHER (salt->salt[i&7], salt->salt[(i+1)&7], S[0][i], S[0][i+1]);
++	for (i = 0; i < sbox_words; i+=2)
++		KEYCIPHER (salt->salt[i&7], salt->salt[(i+1)&7], S[1][i], S[1][i+1]);
++	for (i = 0; i < sbox_words; i+=2)
++		KEYCIPHER (salt->salt[i&7], salt->salt[(i+1)&7], S[2][i], S[2][i+1]);
++	for (i = 0; i < sbox_words; i+=2)
++		KEYCIPHER (salt->salt[i&7], salt->salt[(i+1)&7], S[3][i], S[3][i+1]);
++
++	count = 1 << salt->t_cost;
++	do
++	{
++		L = R = 0; EXPANDKEY (salt->salt);
++		L = R = 0; EXPANDKEY (key_hash);
++	}
++	while (--count);
++
++	count = 64;
++	do
++	{
++		L = ctext[0];
++		R = ctext[1];
++		ENCIPHER;
++		ctext[0] = L;
++		ctext[1] = R;
++		L = ctext[2];
++		R = ctext[3];
++		ENCIPHER;
++		ctext[2] = L;
++		ctext[3] = R;
++	}
++	while (--count);
++
++	ctext[0] = __builtin_bswap64 (ctext[0]);
++	ctext[1] = __builtin_bswap64 (ctext[1]);
++	ctext[2] = __builtin_bswap64 (ctext[2]);
++	ctext[3] = __builtin_bswap64 (ctext[3]);
++
++	pf_sha512 ((const unsigned char *) ctext, 32, pf_out);
++}
++
++int pf_decode64 (unsigned char *dst, int size, char *src)
++{
++	unsigned char *sptr = (unsigned char *) src;
++	unsigned char *dptr = dst;
++	unsigned char *end  = dst + size;
++	unsigned char c1, c2, c3, c4;
++
++	do
++	{
++		c1 = char64(*sptr);
++		c2 = char64(*(sptr + 1));
++
++		if (c1 == 255 || c2 == 255) break;
++
++		*dptr++ = shl(c1, 2) | shr((c2 & 0x30), 4);
++		if (dptr >= end) break;
++
++		c3 = char64(*(sptr + 2));
++		if (c3 == 255) break;
++
++		*dptr++ = shl((c2 & 0x0f), 4) | shr((c3 & 0x3c), 2);
++		if (dptr >= end) break;
++
++		c4 = char64(*(sptr + 3));
++		if (c4 == 255) break;
++
++		*dptr++ = shl((c3 & 0x03), 6) | c4;
++		sptr += 4;
++	} while (dptr < end);
++
++	return (dptr - dst);
++}
++
++void *pf_std_get_salt (char *ciphertext)
++{
++	static pf_salt salt;
++
++	char tcost_str[5] = { '0', 'x', 0 };
++	char mcost_str[11] = { '0', 'x', 0 };
++	unsigned char decoded[255] = { 0 };
++
++	int saltlen, bytes = 0, pos = 0;
++	char *cptr = ciphertext + PUF_ID_LEN;
++
++	for (; *cptr++ != '$' && pos < strlen (ciphertext); pos++);
++
++	bytes = pf_decode64 (decoded, pos, ciphertext + PUF_ID_LEN);
++	saltlen = bytes - 4;
++
++	memmove (tcost_str + 2, decoded, 2);
++	salt.t_cost = strtol (tcost_str, NULL, 16);
++
++	memmove (mcost_str + 2, decoded + 2, 4);
++	salt.m_cost = strtol (mcost_str, NULL, 16);
++
++	pf_sha512 ((const unsigned char *) decoded + 4, saltlen, salt.salt);
++
++	return &salt;
++}
++
++void *pf_std_get_binary (char *ciphertext)
++{
++	static pf_binary binary;
++	char *cptr = ciphertext + PUF_ID_LEN;
++	int pos = 0;
++
++	for (; *cptr++ != '$' && pos < strlen (ciphertext); pos++); pos++;
++
++	pf_decode64 ((unsigned char *) binary, strlen (ciphertext) - pos, ciphertext + PUF_ID_LEN + pos);
++
++	return &binary;
++}
++

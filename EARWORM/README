@@ -1,0 +1,15 @@
+This is an implementation of EARWORM, a candidate in the Password
+Hashing Competition (https://password-hashing.net). earworm.pdf
+contains the submission document.
+
+Typing 'make' will build the binaries test-ref and test-opt, which
+when run will output some test vectors and then benchmark the time it
+takes to run 16 threads concurrently. test-ref is the reference
+implementation; test-opt is the optimized implementation. The
+optimized implementation requires AES-NI support but does not check
+for it; running it on a CPU that is missing AES-NI will cause it to
+crash with an illegal opcode.
+
+Most of the code comprising this implementation is dedicated to the
+public domain. The SHA-256 implementation is copyright Colin Percival
+and MIT-licensed. See individual file headers for licensing details.

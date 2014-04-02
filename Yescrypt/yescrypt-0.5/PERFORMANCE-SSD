@@ -1,0 +1,204 @@
+The benchmarks below correspond to an older revision of yescrypt.  They
+were not re-run for the most recent revision.  However, similar results
+are expected.
+
+On the same Core i7-4770K machine as described in PERFORMANCE-default,
+using its SSD to hold a 64 GiB ROM (twice the machine's RAM size).
+
+Initialization:
+
+$ time ./initrom 64 1 rom64.dat
+r=2048 N=2^3 NROM=2^18
+Will use 67108864.00 KiB ROM
+         2048.00 KiB RAM
+Initializing ROM ... DONE (db27c01c)
+'$7X3$1.U.../....WZaPV7LSUEKMo34.$sByIruCxyfofH2bq6gwy5ER5Vw8BE32Ab4dlc505XXD'
+
+real    29m0.679s
+user    4m15.452s
+sys     2m12.176s
+
+This took 29 minutes.  For comparison, a 16 GiB ROM (still fitting in
+RAM) would be initialized on the same SSD filesystem in 1.5 minutes:
+
+$ time ./initrom 16 1 rom.dat
+r=2048 N=2^3 NROM=2^16
+Will use 16777216.00 KiB ROM
+         2048.00 KiB RAM
+Initializing ROM ... DONE (a7fa1060)
+'$7X3$1.U.../....WZaPV7LSUEKMo34.$9qvImKUxKYJOjfHpoZwLT0f9bKqY.FMs12ZvAeuOhi8'
+
+real    1m38.236s
+user    0m57.804s
+sys     0m15.237s
+
+The ROM initialization code uses a time-memory tradeoff discouraging
+algorithm, so that an attacker would not efficiently recompute portions
+of the ROM on the fly while keeping only a much smaller lookup table.
+Unfortunately, this algorithm makes initialization in other than RAM
+slow.  As a workaround, other ways to initialize ROM-on-SSD may be
+used, even filling it with data from /dev/urandom (but backup copies
+would need to be kept).  On the other hand, even multi-hour ROM-on-SSD
+initialization times may be acceptable since this would normally only
+need to be done before bringing each authentication server into
+production (as well as after replacing SSDs, etc).
+
+Now let's drop any portions of the ROM-on-SSD from RAM cache:
+
+# echo 3 > /proc/sys/vm/drop_caches
+
+and try to use the ROM along with 16 MiB of RAM:
+
+$ ./userom 64 16 rom64.dat
+r=512 N=2^8 NROM=2^20
+Will use 67108864.00 KiB ROM
+         16384.00 KiB RAM
+ROM access frequency mask: 0xe
+'$7X3$6.6.../....WZaPV7LSUEKMo34.$0E1thDNQBLQG/1hFJWeezbEpOoGYQ7J1mNDgTbG0uJ3'
+Benchmarking 1 thread ...
+43 c/s real, 65 c/s virtual (63 hashes in 1.45 seconds)
+Benchmarking 8 threads ...
+180 c/s real, 37 c/s virtual (189 hashes in 1.05 seconds)
+
+This achieves speeds that may be sane for low volume authentication
+servers.  Note that these speeds won't decrease even with much larger
+ROM on SSD (on the contrary, they should increase with multiple SSDs).
+
+The "ROM access frequency mask" has been tuned such that a proportionate
+amount of time is spent on RAM and ROM accesses, and such that decent
+bandwidth for each is achieved (of course, considering that SSD's decent
+bandwidth is much lower than RAM's).  In the test above, RAM access
+speed is about 11.7 GB/s (not counting accesses that are expected to hit
+L1 or L2 cache, which there are many of) and SSD read speed is about
+188 MB/s.  These are estimated as follows:
+
+16384 KiB * 4 reads&writes * 180 c/s * 62/64 * 1024/1000 = 11702108 KB/s
+16384 KiB * 4 reads&writes * 180 c/s * 1/64 * 1024/1000 = 188744 KB/s
+
+In this test, the flags and mask were chosen such that SMix 1st loop
+performed two accesses (one read and one write) per location on average,
+all of them from/to RAM, and SMix 2nd loop also performed two accesses
+(also one read and one write) per location on average, with every 16th
+of its reads being from SSD.  Thus, on average every 64th access is to
+SSD, and the rest are to RAM.
+
+SSD accesses from SMix 1st loop were disabled with the mask (by keeping
+its least significant bit at zero) to mitigate the early-reject risk in
+case of a compromise involving attacker's low-level access to the SSD:
+
+http://www.openwall.com/presentations/Passwords12-The-Future-Of-Hashing/mgp00060.html
+
+For comparison, here's performance achieved without a ROM:
+
+$ ./userom 0 16
+r=8 N=2^14 NROM=2^0
+Will use 0.00 KiB ROM
+         16384.00 KiB RAM
+'$7X3$C6..../....WZaPV7LSUEKMo34.$YURWX7SNevDUvidiaHFdAblyc/KywhZeWpQ2lWW4hc4'
+Benchmarking 1 thread ...
+72 c/s real, 73 c/s virtual (127 hashes in 1.74 seconds)
+Benchmarking 8 threads ...
+242 c/s real, 30 c/s virtual (381 hashes in 1.57 seconds)
+
+This is 16.2 GB/s:
+
+16384 KiB * 4 reads&writes * 242 c/s * 1024/1000 = 16240345 KB/s
+
+The theoretical peak RAM access speed for this machine is:
+
+1600 MT/s * 2 channels * 8 bytes = 25.6 GB/s
+
+(This speed is never reached in practice, not even in RAM benchmarks not
+involving any computation.  Typically, 85% to 90% of peak may be reached
+in synthetic RAM benchmarks.)
+
+Thus, we're at 63.4% of theoretical peak when not using SSD (but when
+doing quite some computation rather than merely accessing RAM, and when
+accessing the RAM in random small blocks), and at 45.7% when using SSD.
+
+Below are some additional benchmarks for using the ROM along with
+smaller RAM sizes (per thread), to achieve higher throughput.  With
+4 MiB of RAM per thread:
+
+$ ./userom 64 4 rom64.dat
+r=512 N=2^6 NROM=2^20
+Will use 67108864.00 KiB ROM
+         4096.00 KiB RAM
+ROM access frequency mask: 0xe
+'$7X3$4.6.../....WZaPV7LSUEKMo34.$3K66C48jM64UpFHMJ.qljSLsGmksNwgB38risAyvdF2'
+Benchmarking 1 thread ...
+150 c/s real, 210 c/s virtual (255 hashes in 1.70 seconds)
+Benchmarking 8 threads ...
+721 c/s real, 134 c/s virtual (765 hashes in 1.06 seconds)
+
+This is almost exactly 4 times faster than with 16 MiB RAM/thread.
+
+Ditto, without use of ROM:
+
+$ ./userom 0 4
+r=8 N=2^12 NROM=2^0
+Will use 0.00 KiB ROM
+         4096.00 KiB RAM
+'$7X3$A6..../....WZaPV7LSUEKMo34.$TmGIucnWOR1xLhe6zmDaTivqtFQTwO89iXiY25ZmyJD'
+Benchmarking 1 thread ...
+311 c/s real, 313 c/s virtual (511 hashes in 1.64 seconds)
+Benchmarking 8 threads ...
+1118 c/s real, 140 c/s virtual (1533 hashes in 1.37 seconds)
+
+This is more than 4 times faster.  Presumably, L3 cache helps.
+
+Even lower RAM per thread (not recommended), for even higher throughput
+(a bigger machine should better be used for such throughput figures):
+
+2 MiB RAM/thread, with ROM on SSD:
+
+$ ./userom 64 2 rom64.dat
+r=512 N=2^5 NROM=2^20
+Will use 67108864.00 KiB ROM
+         2048.00 KiB RAM
+ROM access frequency mask: 0xe
+'$7X3$3.6.../....WZaPV7LSUEKMo34.$R8hlsJI83uhwnUaG5uIZa94/BfLYZZx4xGhkIEo6tW7'
+Benchmarking 1 thread ...
+247 c/s real, 322 c/s virtual (255 hashes in 1.03 seconds)
+Benchmarking 8 threads ...
+1222 c/s real, 208 c/s virtual (1785 hashes in 1.46 seconds)
+
+2 MiB RAM/thread, without ROM:
+
+$ ./userom 0 2
+r=8 N=2^11 NROM=2^0
+Will use 0.00 KiB ROM
+         2048.00 KiB RAM
+'$7X3$96..../....WZaPV7LSUEKMo34.$yiVEyLf68agsa3VGSX7LClYXak8P/AQAoswcRRHBRt2'
+Benchmarking 1 thread ...
+620 c/s real, 623 c/s virtual (1023 hashes in 1.65 seconds)
+Benchmarking 8 threads ...
+2623 c/s real, 332 c/s virtual (3069 hashes in 1.17 seconds)
+
+1 MiB RAM/thread, with ROM on SSD:
+
+$ ./userom 64 1 rom64.dat
+r=512 N=2^4 NROM=2^20
+Will use 67108864.00 KiB ROM
+         1024.00 KiB RAM
+ROM access frequency mask: 0xe
+'$7X3$2.6.../....WZaPV7LSUEKMo34.$TrRYv7ThdTFV11fbjdWhaYmiR7TwbCxwMKTFmzegWrD'
+Benchmarking 1 thread ...
+362 c/s real, 436 c/s virtual (511 hashes in 1.41 seconds)
+Benchmarking 8 threads ...
+1797 c/s real, 269 c/s virtual (3577 hashes in 1.99 seconds)
+
+1 MiB RAM/thread, without ROM:
+
+$ ./userom 0 1
+r=8 N=2^10 NROM=2^0
+Will use 0.00 KiB ROM
+         1024.00 KiB RAM
+'$7X3$86..../....WZaPV7LSUEKMo34.$o02.6.VC0BXgxwrBizvEF/OYByRvA1ju7U2yBOc07H2'
+Benchmarking 1 thread ...
+1218 c/s real, 1218 c/s virtual (2047 hashes in 1.68 seconds)
+Benchmarking 8 threads ...
+5962 c/s real, 744 c/s virtual (6141 hashes in 1.03 seconds)
+
+This is 24.6 times faster than the ROM-less 16 MiB benchmark.  L3 cache
+helps here; otherwise it'd be only 16 times faster.
