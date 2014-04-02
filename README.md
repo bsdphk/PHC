@@ -14,7 +14,7 @@ The submissions have been "sanitized" the following ways:
         Use consistent capitaliztion of top level directories
 
 Over time, commits will be made to make life easier for people
-who want to play around with the code, for insance by improving
+who want to play around with the code, for instance by improving
 Makefiles or portability.
 
 No substantial or functional changes will be made unless at the
