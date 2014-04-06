@@ -37,19 +37,19 @@ void PHS
 	uint64_t h[2*(DIGEST_SIZE >> 3)];
 	uint64_t X[m_cost][DIGEST_SIZE >> 3];
 	uint64_t V[_VSIZE][DIGEST_SIZE >> 3];
-	int lword = (DIGEST_SIZE >> 3) - 1;
+	int hlen = (DIGEST_SIZE >> 3);
 #else
 	uint32_t digest[DIGEST_SIZE >> 2];
 	uint32_t shash[DIGEST_SIZE >> 2];
 	uint32_t h[2*(DIGEST_SIZE >> 2)];
 	uint32_t X[m_cost][DIGEST_SIZE >> 2];
 	uint32_t V[_VSIZE][DIGEST_SIZE >> 2];
-	int lword = (DIGEST_SIZE >> 2) - 1;
+	int hlen = (DIGEST_SIZE >> 2);
 #endif
-	int isz  = sizeof(unsigned int);
 	unsigned int k,i = 0,mask0 = m_cost-1,mask1 = _VSIZE-1;
+	int pos;
 
-	/* obtain H(in + ipad) and H(in + opad) */
+	/* obtain H(in ^ ipad) and H(in ^ opad) */
 
 	PRF_init((unsigned char *)h,(const unsigned char *)in,inlen);
 
@@ -57,68 +57,69 @@ void PHS
 
 	ctx_reinit(&ctx,(unsigned char *)h);
 	(*f_hash)((const unsigned char *)salt,saltlen,&ctx); 
-	(*f_hash)((const unsigned char *)&t_cost,isz,&ctx);
-	(*f_hash)((const unsigned char *)&i,isz,&ctx);
+	(*f_hash)((const unsigned char *)&t_cost,4,&ctx);
+	(*f_hash)((const unsigned char *)&i,4,&ctx);
 	(*f_end)((void *)digest,&ctx);
 
-	ctx_reinit(&ctx,(unsigned char *)&h[DIGEST_SIZE]);
+	ctx_reinit(&ctx,(unsigned char *)&h[hlen]);
 	(*f_hash)((const unsigned char *)digest,DIGEST_SIZE,&ctx);
-	(*f_end)((void *)&X[0],&ctx);
+	(*f_end)((void *)X[0],&ctx);
 
 	for (i=1;i<m_cost;i++){
 
 		ctx_reinit(&ctx,(unsigned char *)h);
-		(*f_hash)((const unsigned char *)&X[i-1],DIGEST_SIZE,&ctx);
-		(*f_hash)((const unsigned char *)&t_cost,isz,&ctx);
-		(*f_hash)((const unsigned char *)&i,isz,&ctx);
+		(*f_hash)((const unsigned char *)X[i-1],DIGEST_SIZE,&ctx);
+		(*f_hash)((const unsigned char *)&t_cost,4,&ctx);
+		(*f_hash)((const unsigned char *)&i,4,&ctx);
 		(*f_end)((void *)digest,&ctx);
 
-		ctx_reinit(&ctx,(unsigned char *)&h[DIGEST_SIZE]);
+		ctx_reinit(&ctx,(unsigned char *)&h[hlen]);
 		(*f_hash)((const unsigned char *)digest,DIGEST_SIZE,&ctx);
-		(*f_end)((void *)&X[i],&ctx);
+		(*f_end)((void *)X[i],&ctx);
 	}
 
-	/* obtain H(salt + ipad) and H(salt + opad) */
+	/* obtain H(salt ^ ipad) and H(salt ^ opad) */
 
 	PRF_init((unsigned char *)h,(const unsigned char *)salt,saltlen);
 
 	ctx_reinit(&ctx,(unsigned char *)h);
 	(*f_hash)((const unsigned char *)in,inlen,&ctx);
-	(*f_hash)((const unsigned char *)&X[m_cost-1],DIGEST_SIZE,&ctx);
+	(*f_hash)((const unsigned char *)X[m_cost-1],DIGEST_SIZE,&ctx);
 	(*f_end)((void *)shash,&ctx);
 
-	ctx_reinit(&ctx,(unsigned char *)&h[DIGEST_SIZE]);
+	ctx_reinit(&ctx,(unsigned char *)&h[hlen]);
 	(*f_hash)((const unsigned char *)shash,DIGEST_SIZE,&ctx);
 	(*f_end)((void *)shash,&ctx);
 
-	/* obtain H(shash + ipad) and H(shash + opad) */
+	/* obtain H(shash ^ ipad) and H(shash ^ opad) */
 
 	PRF_init((unsigned char *)h,(const unsigned char *)shash,DIGEST_SIZE);
 
 #if defined(_64BIT)
-	uint64_t *dp = (uint64_t *)&X[m_cost-1];
+	uint64_t *dp = (uint64_t *)X[m_cost-1];
 #else
-	uint32_t *dp = (uint32_t *)&X[m_cost-1];
+	uint32_t *dp = (uint32_t *)X[m_cost-1];
 #endif
 
 	for (i=0;i<t_cost;i++){
 
-		k = dp[lword] & mask0;
+		k   = dp[0] & mask0;
+		pos = i & mask1;
 
 		ctx_reinit(&ctx,(unsigned char *)h);
-		(*f_hash)((const unsigned char *)&X[k],DIGEST_SIZE,&ctx);
+		(*f_hash)((const unsigned char *)X[k],DIGEST_SIZE,&ctx);
 		(*f_hash)((const unsigned char *)dp,DIGEST_SIZE,&ctx);
-		(*f_hash)((const unsigned char *)&i,isz,&ctx);
+		(*f_hash)((const unsigned char *)&i,4,&ctx);
 		(*f_end)((void *)digest,&ctx);
 
-		ctx_reinit(&ctx,(unsigned char *)&h[DIGEST_SIZE]);
+		ctx_reinit(&ctx,(unsigned char *)&h[hlen]);
 		(*f_hash)((const unsigned char *)digest,DIGEST_SIZE,&ctx);
-		(*f_end)((void *)&V[i & mask1],&ctx);
+		(*f_end)((void *)V[pos],&ctx);
 		
 #if defined(_64BIT)
-		dp = (uint64_t *)&V[i & mask1];
+		dp = (uint64_t *)V[pos];
 #else
-		dp = (uint32_t *)&V[i & mask1];
+		dp = (uint32_t *)V[pos];
 #endif
 	}
 	
@@ -126,10 +127,10 @@ void PHS
 	(*f_hash)((const unsigned char *)in,inlen,&ctx);
 	(*f_hash)((const unsigned char *)salt,saltlen,&ctx);
 	(*f_hash)((const unsigned char *)dp,DIGEST_SIZE,&ctx);
-	(*f_hash)((const unsigned char *)&t_cost,isz,&ctx);
+	(*f_hash)((const unsigned char *)&t_cost,4,&ctx);
 	(*f_end)((void *)shash,&ctx);
 
-	ctx_reinit(&ctx,(unsigned char *)&h[DIGEST_SIZE]);
+	ctx_reinit(&ctx,(unsigned char *)&h[hlen]);
 	(*f_hash)((const unsigned char *)shash,DIGEST_SIZE,&ctx);
 	(*f_end)((void *)shash,&ctx);
 		
@@ -137,7 +138,7 @@ void PHS
 	unsigned int l = (unsigned int)(outlen / DIGEST_SIZE);
 	l = ((r) ? (l+1) : l);
 	
-	/* obtain H(shash + ipad) and H(shash + opad) */
+	/* obtain H(shash ^ ipad) and H(shash ^ opad) */
 
 	PRF_init((unsigned char *)h,(const unsigned char *)shash,DIGEST_SIZE);
 
@@ -151,10 +152,10 @@ void PHS
 		
 		int j;
 		for (j=0;j<_VSIZE;j++)
-			(*f_hash)((const unsigned char *)&V[j],DIGEST_SIZE,&ctx);
+			(*f_hash)((const unsigned char *)V[j],DIGEST_SIZE,&ctx);
 		(*f_end)((void *)digest,&ctx);
 
-		ctx_reinit(&ctx,(unsigned char *)&h[DIGEST_SIZE]);
+		ctx_reinit(&ctx,(unsigned char *)&h[hlen]);
 		(*f_hash)((const unsigned char *)digest,DIGEST_SIZE,&ctx);
 
 		if ((i == (l-1)) && (r)){
@@ -171,6 +172,13 @@ void PHS
 				tp += DIGEST_SIZE;
 		}	
 	}
+	
+	memset(digest,0,DIGEST_SIZE);
+	memset(shash,0,DIGEST_SIZE);
+	memset(h,0,2*DIGEST_SIZE);
+	memset(X,0,m_cost*DIGEST_SIZE);
+	memset(V,0,_VSIZE*DIGEST_SIZE);
+	memset(&ctx,0,sizeof(ctx));
 }
 
 void PRF_init
@@ -182,14 +190,11 @@ void PRF_init
 {
 	hash_ctx	ctx;
 
+	/* alignment functions below due to Ulrich Drepper - as in SHA2crypt */
 #if defined(_64BIT)
-	/* align temp buffer to 64-bit word length */
-
 	unsigned char	k[BLOCK_SIZE]
 	__attribute__((__aligned__(__alignof__(uint64_t))));
 #else
-	/* align temp buffer to 32-bit word length */
-
 	unsigned char	k[BLOCK_SIZE]
 	__attribute__((__aligned__(__alignof__(uint32_t))));
 #endif
@@ -236,6 +241,8 @@ void PRF_init
 	memset(k,0,BLOCK_SIZE);
 	memset(&ctx,0,sizeof(ctx));
 }
+
+/* adopted from Brian Gladman in his SHA*_begin functions for the SHA2 hash family */
 
 void ctx_reinit(hash_ctx *ctx,unsigned char *hkey)
 {

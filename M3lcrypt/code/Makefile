@@ -1,7 +1,7 @@
 SOURCES= Sha2.c m3lcrypt.c main.c
 LINK=cc
 INCLUDES=
-CFLAGS=-D_HF=0 -D_VSPACE=16
+CFLAGS=-D_HF=0 -D_VSPACE=16 -O2
 SLIBS=
 PROGRAM= m3lcrypt
 

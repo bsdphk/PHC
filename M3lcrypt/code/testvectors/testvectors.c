@@ -90,7 +90,7 @@ int main(){
 
 	int saltlen = 16;
 	int outlen  = 32;
-	unsigned int t_cost = (unsigned int)pow(2,13);
+	unsigned int t_cost = (unsigned int)pow(2,14);
 	unsigned int m_cost = (unsigned int)pow(2,15);
 
 	static const char src1[27] = "abcdefghijklmnopqrstuvwxyz";
@@ -99,7 +99,6 @@ int main(){
 	int i,k,v,s;
 	int plen[4] = {2,8,16,32};
 	uint32_t salt[saltlen>>2];
-	uint32_t psalt[saltlen>>2];
 	uint32_t out[outlen >> 2];
 	char keys[16][129];
 	
@@ -109,16 +108,11 @@ int main(){
 
 	char *tkey = "password";
 	memset((unsigned char *)salt,0,saltlen);
-	memset((unsigned char *)psalt,0,saltlen);
 
 	for (i=0;i<256;i++){
 		salt[0] = i;
-		psalt[0] = i;
 		PHS((void *)out,outlen,(void *)tkey,strlen(tkey),(void *)salt,saltlen,t_cost,m_cost);
-
-		/* big endian byte order */
-		bsw_32(psalt,saltlen>>2);
-		print_r((unsigned char*)out,outlen,tkey,(unsigned char *)psalt,saltlen,1,v++,1);
+		print_r((unsigned char*)out,outlen,tkey,(unsigned char *)salt,saltlen,1,v++,1);
 	}
 
 	printf("%s\n","Set 2: PW = {26 Alphabet Letters}^k");
@@ -128,13 +122,8 @@ int main(){
 
 	/* throw away the first 32-bit word */
 	rand(); 
-	for (i=0;i<(saltlen>>2);i++){
+	for (i=0;i<(saltlen>>2);i++)
 		salt[i] = rand();
-		psalt[i] = salt[i];
-	}
-
-	/* big endian byte order */
-	bsw_32(psalt,saltlen>>2);
 
 	v = 0;
 	for (k=0;k<4;k++){
@@ -142,8 +131,7 @@ int main(){
 	
 		for (i=0;i<16;i++){
 			PHS((void *)out,outlen,(void *)keys[i],plen[k],(void *)salt,saltlen,t_cost,m_cost);
-
-			print_r((unsigned char*)out,outlen,keys[i],(unsigned char *)psalt,saltlen,2,v++,plen[k]);
+			print_r((unsigned char*)out,outlen,keys[i],(unsigned char *)salt,saltlen,2,v++,plen[k]);
 		}
 	}
 
@@ -151,13 +139,8 @@ int main(){
 
 	/* throw away the first 32-bit word */
 	rand(); 
-	for (i=0;i<(saltlen>>2);i++){
+	for (i=0;i<(saltlen>>2);i++)
 		salt[i] = rand();
-		psalt[i] = salt[i];
-	}
-
-	/* dig endian byte order */
-	bsw_32(psalt,saltlen>>2);
 
 	v = 0;
 	printf("%s\n","Set 3: PW = {95 7-bit ASCII Characters}^k");
@@ -168,8 +151,7 @@ int main(){
 	
 		for (i=0;i<16;i++){
 			PHS((void *)out,outlen,(void *)keys[i],plen[k],(void *)salt,saltlen,t_cost,m_cost);
-
-			print_r((unsigned char*)out,outlen,keys[i],(unsigned char *)psalt,saltlen,3,v++,plen[k]);
+			print_r((unsigned char*)out,outlen,keys[i],(unsigned char *)salt,saltlen,3,v++,plen[k]);
 		}
 	}
 

@@ -7,7 +7,7 @@ int main(){
 
 	size_t saltlen = 16;
 	size_t outlen  = 32;
-	unsigned int t_cost = (unsigned int)pow(2,13);
+	unsigned int t_cost = (unsigned int)pow(2,14);
 	unsigned int m_cost = (unsigned int)pow(2,15);
 	int i;
 
