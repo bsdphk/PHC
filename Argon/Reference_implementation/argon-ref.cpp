@@ -1,13 +1,17 @@
 #include "stdio.h"
 
-#include "string.h"
-#include <algorithm>    
-#include "time.h"
+#include "wmmintrin.h"
+#include <immintrin.h> 
+#include <intrin.h> 
+#include <time.h> 
+
+#include <string>
 using namespace std;
 
+#define MAX_THREADS 32
 #define MAX_OUTLEN 32
 #define MIN_MEMORY 1
-#define MAX_MEMORY (1<<31)
+#define MAX_MEMORY (1<<26)
 #define MIN_TIME 1
 #define LENGTH_SIZE 4
 #define MIN_PASSWORD 0
@@ -17,7 +21,7 @@ using namespace std;
 #define INPUT_SIZE (INPUT_BLOCKS*12)
 #define INPUT_BLOCKS 32
 #define CACHE_SIZE 128
-#define BATCH_SIZE 16
+#define BATCH_SIZE 16   //should be not larger than 32
 #define GROUP_SIZE 32
 
 #define AES_ROUNDS 5
@@ -25,7 +29,9 @@ using namespace std;
 #define u32 unsigned __int32
 #define u64 unsigned long long int
 
-
+#define KAT
+#define _MEASURE
+//#define KATINT
 
 unsigned char subkeys[11][16]={
 	{0x00, 0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0a, 0x0b, 0x0c, 0x0d, 0x0e, 0x0f, },
@@ -173,22 +179,22 @@ void SubGroups(int128* state, unsigned width)
 	{
 		//Computing X_i:
 		int128 X[16];
-		X[0]=state[i+3] ^ state[i+7] ^ state[i+11] ^ state[i+15] ^ state[i+19] ^ state[i+23] ^ state[i+27] ^ state[i+31];
-		X[1]=state[i+1] ^ state[i+5] ^ state[i+9] ^ state[i+13] ^ state[i+17] ^ state[i+21] ^ state[i+25] ^ state[i+29];
-		X[2]=state[i+2] ^ state[i+6] ^ state[i+10] ^ state[i+14] ^ state[i+18] ^ state[i+22] ^ state[i+26] ^ state[i+30];
-		X[3]=state[i+0] ^ state[i+4] ^ state[i+8] ^ state[i+12] ^ state[i+16] ^ state[i+20] ^ state[i+24] ^ state[i+28];
-		X[4]=state[i+12] ^ state[i+13] ^ state[i+14] ^ state[i+15] ^ state[i+28] ^ state[i+29] ^ state[i+30] ^ state[i+31];
-		X[5]=state[i+4] ^ state[i+5] ^ state[i+6] ^ state[i+7] ^ state[i+20] ^ state[i+21] ^ state[i+22] ^ state[i+23];
-		X[6]=state[i+8] ^ state[i+9] ^ state[i+10] ^ state[i+11] ^ state[i+24] ^ state[i+25] ^ state[i+26] ^ state[i+27];
-		X[7]=state[i+17] ^ state[i+19] ^ state[i+21] ^ state[i+23] ^ state[i+25] ^ state[i+27] ^ state[i+29] ^ state[i+31];
-		X[8]=state[i+1] ^ state[i+3] ^ state[i+5] ^ state[i+7] ^ state[i+9] ^ state[i+11] ^ state[i+13] ^ state[i+15];
-		X[9]=state[i+0] ^ state[i+2] ^ state[i+4] ^ state[i+6] ^ state[i+16] ^ state[i+18] ^ state[i+20] ^ state[i+22];
-		X[10]=state[i+0] ^ state[i+2] ^ state[i+8] ^ state[i+10] ^ state[i+16] ^ state[i+18] ^ state[i+24] ^ state[i+26];
-		X[11]=state[i+2] ^ state[i+6] ^ state[i+10] ^ state[i+14] ^ state[i+18] ^ state[i+22] ^ state[i+26] ^ state[i+30];
-		X[12]=state[i+10] ^ state[i+11] ^ state[i+14] ^ state[i+15] ^ state[i+26] ^ state[i+27] ^ state[i+30] ^ state[i+31];
-		X[13]=state[i+2] ^ state[i+3] ^ state[i+6] ^ state[i+7] ^ state[i+10] ^ state[i+11] ^ state[i+14] ^ state[i+15];
-		X[14]=state[i+12] ^ state[i+13] ^ state[i+14] ^ state[i+15] ^ state[i+28] ^ state[i+29] ^ state[i+30] ^ state[i+31];
-		X[15]=state[i+0] ^ state[i+1] ^ state[i+2] ^ state[i+3] ^ state[i+8] ^ state[i+9] ^ state[i+10] ^ state[i+11];
+		X[ 0] =  state[i+ 3]^ state[i+ 7]^ state[i+11]^ state[i+15]^ state[i+19]^ state[i+23]^ state[i+27]^ state[i+31];
+		X[ 1] =  state[i+ 1]^ state[i+ 3]^ state[i+ 9]^ state[i+11]^ state[i+17]^ state[i+19]^ state[i+25]^ state[i+27];
+		X[ 2] =  state[i+ 0]^ state[i+ 2]^ state[i+ 4]^ state[i+ 6]^ state[i+16]^ state[i+18]^ state[i+20]^ state[i+22];
+		X[ 3] =  state[i+ 1]^ state[i+ 3]^ state[i+ 5]^ state[i+ 7]^ state[i+ 9]^ state[i+11]^ state[i+13]^ state[i+15];
+		X[ 4] =  state[i+ 6]^ state[i+ 7]^ state[i+14]^ state[i+15]^ state[i+22]^ state[i+23]^ state[i+30]^ state[i+31];
+		X[ 5] =  state[i+10]^ state[i+11]^ state[i+14]^ state[i+15]^ state[i+26]^ state[i+27]^ state[i+30]^ state[i+31];
+		X[ 6] =  state[i+16]^ state[i+17]^ state[i+20]^ state[i+21]^ state[i+24]^ state[i+25]^ state[i+28]^ state[i+29];
+		X[ 7] =  state[i+12]^ state[i+13]^ state[i+14]^ state[i+15]^ state[i+28]^ state[i+29]^ state[i+30]^ state[i+31];
+		X[ 8] =  state[i+ 4]^ state[i+ 5]^ state[i+ 6]^ state[i+ 7]^ state[i+12]^ state[i+13]^ state[i+14]^ state[i+15];
+		X[ 9] =  state[i+16]^ state[i+17]^ state[i+18]^ state[i+19]^ state[i+20]^ state[i+21]^ state[i+22]^ state[i+23];
+		X[10] =  state[i+ 1]^ state[i+ 5]^ state[i+ 9]^ state[i+13]^ state[i+17]^ state[i+21]^ state[i+25]^ state[i+29];
+		X[11] =  state[i+ 2]^ state[i+ 6]^ state[i+10]^ state[i+14]^ state[i+18]^ state[i+22]^ state[i+26]^ state[i+30];
+		X[12] =  state[i+ 4]^ state[i+ 5]^ state[i+ 6]^ state[i+ 7]^ state[i+20]^ state[i+21]^ state[i+22]^ state[i+23];
+		X[13] =  state[i+ 8]^ state[i+ 9]^ state[i+10]^ state[i+11]^ state[i+24]^ state[i+25]^ state[i+26]^ state[i+27];
+		X[14] =  state[i+ 0]^ state[i+ 1]^ state[i+ 2]^ state[i+ 3]^ state[i+ 8]^ state[i+ 9]^ state[i+10]^ state[i+11];
+		X[15] =  state[i+ 0]^ state[i+ 4]^ state[i+ 8]^ state[i+12]^ state[i+16]^ state[i+20]^ state[i+24]^ state[i+28];
 		
 		
 
@@ -202,7 +208,6 @@ void SubGroups(int128* state, unsigned width)
 		}
 	}
 }
-
 
 void ShuffleSlices(int128* state, unsigned width)
 {
@@ -222,10 +227,7 @@ void ShuffleSlices(int128* state, unsigned width)
 	}
 }
 
-
-
-
-int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost)
+int ArgonRef(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, const void *secret, size_t secretlen, unsigned int t_cost, unsigned int m_cost)
 {
 	Init();  //Initializing Galois field multiplication table.
 	int128* state;  //Array A of blocks
@@ -249,7 +251,20 @@ int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt
 		inlen = MAX_PASSWORD;
 	if(saltlen> MAX_SALT)
 		saltlen = MAX_SALT;
-
+#ifdef KAT
+	FILE* fp=fopen("kat.log","a+");
+	fprintf(fp,"=======================================\n");
+	fprintf(fp,"Iterations: %d, Memory: %d KBytes, Tag length: %d bytes\n", t_cost, m_cost,outlen);
+	fprintf(fp,"Password: ");
+	for(unsigned i=0; i<inlen; ++i)
+		fprintf(fp,"%2.2x ",((unsigned char*)in)[i]);
+	fprintf(fp,"\n");
+	fprintf(fp,"Salt: ");
+	for(unsigned i=0; i<saltlen; ++i)
+		fprintf(fp,"%2.2x ",((unsigned char*)salt)[i]);
+	fprintf(fp,"\n");
+		
+#endif
 
 
 
@@ -266,10 +281,10 @@ int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt
 	{
 		Input[i+LENGTH_SIZE] = (saltlen>>(8*i))&0xff;  //Little endian salt length encoding
 	}
-	//1.3 Garlic length  -- equal to 0 in the default function
+	//1.3 Secret length  -- equal to 0 in the default function
 	for(unsigned i=0; i<LENGTH_SIZE; ++i)
 	{
-		Input[i+2*LENGTH_SIZE] =0;
+		Input[i+2*LENGTH_SIZE] =(secretlen>>(8*i))&0xff;
 	}
 	//1.4 Iteration number
 	for(unsigned i=0; i<LENGTH_SIZE; ++i)
@@ -286,7 +301,7 @@ int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt
 	{
 		Input[i+5*LENGTH_SIZE] =(outlen>>(8*i))&0xff;
 	}
-		//1.7 Password
+	//1.7 Password
 	for(unsigned i=0; i<inlen; ++i)
 	{
 		Input[i+6*LENGTH_SIZE] =((unsigned char*)in)[i];
@@ -296,11 +311,25 @@ int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt
 	{
 		Input[i+6*LENGTH_SIZE+inlen] =((unsigned char*)salt)[i];
 	}
-	//1.9 Secret is empty
+	//1.9 Secret
+	for(unsigned i=0; i<secretlen; ++i)
+	{
+		Input[i+6*LENGTH_SIZE+inlen+saltlen+i] =((unsigned char*)secret)[i];
+	}
 	//1.10 Padding
-	for(unsigned i=6*LENGTH_SIZE+inlen+saltlen; i<INPUT_SIZE; ++i)
+	for(unsigned i=6*LENGTH_SIZE+inlen+saltlen+secretlen; i<INPUT_SIZE; ++i)
 		Input[i] = 0;
-
+#ifdef KATINT
+	fprintf(fp,"Input string:\n");
+	for(unsigned i=0; i<INPUT_SIZE; ++i)
+	{
+		fprintf(fp,"%2.2x ",Input[i]);
+		if(i%30==29)
+			fprintf(fp,"\n");
+	}
+	fprintf(fp,"\n");
+		
+#endif
 
 
 	//2. Filling blocks
@@ -308,7 +337,8 @@ int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt
 	state = new int128[state_size];
 	if(state==NULL)
 		return 1;
-	
+	printf("Memory allocated: %d KBytes\n",state_size*sizeof(int128)/(1<<10));
+
 	for(unsigned i=0; i<state_size; ++i)
 	{
 		//Input part
@@ -323,6 +353,16 @@ int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt
 		state[i].i1 ^= ((u64)i)<<(32);
 	}
 	memset(Input,0,INPUT_SIZE);
+#ifdef KATINT
+	fprintf(fp,"Blocks:\n");
+	for(unsigned i=0; i<state_size; ++i)
+	{
+		fprintf(fp,"Block %3.3d: H: %.16llx L: %.16llx",i,state[i].i1,state[i].i0);
+		fprintf(fp,"\n");
+	}
+	fprintf(fp,"\n");
+		
+#endif
 
 	//3. Initial transformation
 	for(unsigned i=0; i<state_size; ++i)
@@ -330,19 +370,56 @@ int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt
 		AES_reduced(state[i]);
 	}
 
-	
+	#ifdef KATINT
+	fprintf(fp,"Initial transformation:\nBlocks:\n");
+	for(unsigned i=0; i<state_size; ++i)
+	{
+		fprintf(fp,"Block %3.3d: H: %.16llx L: %.16llx",i,state[i].i1,state[i].i0);
+		fprintf(fp,"\n");
+	}
+	fprintf(fp,"\n");
+		
+#endif
+
 	//4. Rounds: 
 	for(unsigned l=0; l <t_cost; ++l)
 	{
 		SubGroups(state,state_size);
-
+#ifdef KATINT
+	fprintf(fp,"Round %d SubGroups:\nBlocks:\n",l+1);
+	for(unsigned i=0; i<state_size; ++i)
+	{
+		fprintf(fp,"Block %3.3d: H: %.16llx L: %.16llx",i,state[i].i1,state[i].i0);
+		fprintf(fp,"\n");
+	}
+	fprintf(fp,"\n");
+		
+#endif
 		ShuffleSlices(state,state_size);
-
+			#ifdef KATINT
+	fprintf(fp,"ShuffleSlices:\nBlocks:\n");
+	for(unsigned i=0; i<state_size; ++i)
+	{
+		fprintf(fp,"Block %3.3d: H: %.16llx L: %.16llx",i,state[i].i1,state[i].i0);
+		fprintf(fp,"\n");
+	}
+	fprintf(fp,"\n");
+		
+#endif
 	}
 
 	//5.Finalization
 	SubGroups(state,state_size);
-
+#ifdef KATINT
+	fprintf(fp,"Last round: SubGroups:\nBlocks:\n");
+	for(unsigned i=0; i<state_size; ++i)
+	{
+		fprintf(fp,"Block %3.3d: H: %.16llx L: %.16llx",i,state[i].i1,state[i].i0);
+		fprintf(fp,"\n");
+	}
+	fprintf(fp,"\n");
+		
+#endif
 
 
 	int128 a1(0,0);
@@ -384,11 +461,31 @@ int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt
 		for(unsigned i=16; i<outlen; ++i)
 			((unsigned char*)out)[i] = tag2[i-16];
 	}
+#ifdef KAT
+	fprintf(fp,"Tag: ");
+	for(unsigned i=0; i<outlen; ++i)
+		fprintf(fp,"%2.2x ",((unsigned char*)out)[i]);
+	fprintf(fp,"\n");
+	fclose(fp);
+#endif KAT
 	
 
 	delete state;
 	return 0;
 }
+
+
+
+
+
+
+int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, 
+	unsigned int t_cost, unsigned int m_cost)
+//The major difference is that the slices are stored sequentially
+{
+	return ArgonRef(out, outlen, in, inlen, salt, saltlen, NULL, 0, t_cost, m_cost);
+}
+
 
 void GenKat(unsigned outlen)
 {
@@ -397,26 +494,45 @@ void GenKat(unsigned outlen)
 	memset(zero_array,0,256);
 	unsigned t_cost = 3;
 	unsigned m_cost = 2;
-	remove("out.log");
-	FILE* fp=fopen("kat.log","w+");
-	for(unsigned p_len=0; p_len<=256; p_len+=16)
+#ifdef KAT
+	remove("kat.log");
+#endif
+	for(unsigned p_len=0; p_len<=256; p_len+=32)
 	{
 		for(unsigned s_len=8; s_len<=32; s_len+=8)
-		{	
+		{
+#ifdef _MEASURE
+			unsigned __int64 i1,i2,i3,d1,d2;
+			unsigned int ui1,ui2,ui3;
+#endif
+	
+
 			outlen = s_len;
+#ifdef _MEASURE
+			clock_t start = clock();
+			i2 = __rdtscp(&ui2);
+#endif
+			
 			PHS(out,outlen,sbox,p_len,subkeys[5],s_len,t_cost,m_cost);
-			fprintf(fp,"Tag: ");
-			for(unsigned i=0; i<outlen; ++i)
-				fprintf(fp,"%2.2x ",((unsigned char*)out)[i]);
-			fprintf(fp,"\n");
+			
+#ifdef _MEASURE
+			i3 = __rdtscp(&ui3);
+			clock_t finish = clock();
+
+			d2 = (i3-i2)/(m_cost);
+			float mcycles = (float)(i3-i2)/(1<<20);
+			printf("Argon Reference:  %d iterations %2.2f cpb %2.2f Mcycles\n", t_cost, (float)d2/1000,mcycles);
+
+
+			
+			float run_time = ((float)finish-start)/(CLOCKS_PER_SEC);
+			printf("%2.4f seconds\n", run_time);
+			#endif
 		}
 	}
-	fclose(fp);
 }
 
-
 int main(int argc, char* argv[])
-{	
+{
 	GenKat(32);
-	return 0;
 }

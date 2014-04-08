@@ -1,340 +1,180 @@
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 51 3a f4 ca 28 61 47 cc 
+Tag: 38 74 93 db ca 15 21 3a 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: e3 30 39 31 6c 22 43 83 6e 95 85 50 76 71 24 73 
+Tag: 9a 41 48 be 9f f2 48 7e bf c5 61 4b 2f f6 c9 37 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 2c e4 c7 53 87 f4 8d 52 d7 3c 4b 43 a0 14 29 ce bf 47 72 48 6e 6a 90 4a 
+Tag: b2 1b 72 6f e5 37 f9 8b b7 4d 04 10 17 ad 03 ba 9b e9 99 f0 0a 30 d0 25 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 19 dd 36 b9 74 c9 a5 0b 73 e7 84 9c 40 d5 2a 9e 9d 0b 94 94 cf 13 44 9e 47 1f 25 53 3b e0 54 de 
+Tag: 31 5d c8 ce 98 b2 6f 51 d0 6a 8d 55 72 49 09 72 cc c7 21 85 ff b3 bb 8a 75 0e 52 8a 9c b4 0a f2 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 
-Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 33 fb 71 e8 f5 cb a7 dd 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 00 0c 6e 82 2b 1e f0 65 e9 bc ed 8f 21 6f dc ec 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 20 73 a8 43 c4 d1 d3 e7 21 e9 6a 59 8f cf 69 e1 82 e0 3a 7e 16 05 21 7c 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 68 22 f6 57 8b 4c fd d6 95 0b df f9 b4 ef 1f 44 94 b2 93 59 9c f7 4e 13 b5 3a 44 e3 b4 1d 17 ff 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 7d b0 9e 16 bc 1c ab aa 
+Tag: 37 a7 01 5c 21 d0 a4 29 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 65 c6 12 62 0b f6 08 1e a7 1d 2f 9a ba e5 0f d3 
+Tag: 21 03 2e ee b7 1e 36 2c a8 63 23 5c b3 31 5f 02 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 86 92 58 0d aa 05 0a a7 57 38 b2 a2 f0 a3 53 91 8f a3 46 b3 dc 77 da 59 
+Tag: 90 4f 23 6b 1d 41 84 38 a8 fa c7 98 02 78 a1 43 46 28 20 07 1e 2c be 5e 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 5d b9 d7 8d 22 d6 57 74 fc 56 8a 45 38 a6 c8 0e bb ed 96 f8 3f 95 3e 84 e4 98 fa 7a 34 b8 fe 90 
+Tag: b4 65 5f be 3a 0e 57 1c f8 37 ef fa c6 ae e8 97 7c 25 70 f6 e7 95 da c6 9a 16 f1 99 2b 8b c8 6e 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 
-Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 9f d3 72 ea e1 15 20 dd 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 58 45 c2 05 e5 f1 69 fe c9 5d 22 82 da 40 ba aa 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 88 21 4a 25 e4 32 39 ab c0 4d cf b0 e7 6d 10 1d 90 d6 6f c0 28 df 5b 27 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: c8 b9 5c 19 75 13 7d 3f fd 2b 38 e5 e5 b4 13 71 a6 cc c3 ae f9 2a b6 af e2 c5 9e 1d 24 9a 97 07 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: e3 78 3b 53 6e 58 ea 75 
+Tag: 6d 9b 0e 72 77 ca e0 c5 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 24 52 58 7a 3f 32 53 0e d6 a7 89 8a f9 e6 a3 72 
+Tag: b3 b6 5d 39 53 4b d1 c3 b7 88 33 c1 49 29 3c bd 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 52 f5 e5 c3 55 be f6 20 13 a0 57 b8 a5 4d 00 2a 85 35 d8 8f 1e 67 fb c0 
+Tag: 6f 39 d2 68 b0 5a 57 ac 71 58 e9 4e ba 80 ff be f4 1f a3 ea 0b 78 4b d6 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 06 77 39 6d f1 08 f2 ef ee 4f 3c a8 ce 39 fe 48 9c 3a 76 f8 22 e7 f7 8d 97 18 c6 80 29 f5 7a 73 
+Tag: ff 5d ca 8d e8 32 32 ed aa 4c b1 84 f5 90 f3 b7 ae 15 20 88 2f ed da e0 63 33 4e 6d e7 9e 31 30 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 
-Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 21 af 77 b4 e4 46 ea cd 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 81 2b 82 7c ea 2d b9 07 91 57 ff f9 57 a0 c4 48 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: a6 4c 14 b0 49 6b e6 f1 51 3d 6c 14 42 c2 fa f3 24 29 8e b6 04 3f ee 98 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: a0 81 c0 27 85 12 6b 11 c1 51 df 70 8c 10 b2 ad 20 91 68 5e d1 1e d8 4e e0 bf 59 22 ec d7 57 54 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 90 af ce d6 6d ea d1 72 
+Tag: f3 05 2a 2e 9a b2 86 52 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: a3 f5 4c bc 2e c4 57 ac 19 ee 10 75 67 f7 70 b0 
+Tag: c0 b2 48 52 a7 41 66 d2 65 8b df d2 d1 0d f5 72 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 68 10 be a9 4d da d6 21 65 85 f2 67 18 82 e3 c1 a5 a9 e4 00 f2 32 17 1a 
+Tag: 64 66 43 1a 24 12 ef be 77 b0 6d 1d f0 7b 9e 6c cd a3 b0 02 69 b9 43 fa 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: e8 79 9b 38 05 66 02 0d 91 5b 43 d4 f8 1d 03 db a6 77 72 bc ff 1c b7 2e 77 2d 57 9b 15 bc f2 4b 
+Tag: e0 50 70 21 53 3e 1f fa ca 7d d3 65 74 f7 30 11 c1 e0 93 3d 46 09 3f fb 41 98 d7 86 b2 f0 2b eb 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 
-Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: fb 68 7c b8 c3 75 47 43 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 15 e5 ba a2 2c 94 89 ac 19 26 71 ca d0 a3 06 3a 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: d7 39 3e e8 a1 37 5e bf e3 9b 59 78 39 a2 86 f2 e4 d5 54 15 a8 5e 68 18 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 87 c6 cd 8e 0a cf a4 cd 10 b5 db f5 0a 33 58 a5 71 3f 1d d3 99 82 d4 cf f6 e8 8b a5 a3 db 9f 2b 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 20 3d 5e fb a8 2e c1 5b 
+Tag: 12 6f 1f f7 55 61 60 10 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 62 75 b6 2e c7 de 9b a6 0e 9c 7b 0c 2d c7 51 ef 
+Tag: 05 84 85 0e 35 a4 f3 dd 0d 35 c2 0e d5 56 84 6e 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 6b 75 55 7b 06 55 9f 0f 75 92 af 9f 3b da 89 18 d5 8a 58 09 c2 aa cf 42 
+Tag: eb 8a 59 d2 8d 32 a2 26 67 09 fa f1 c4 26 19 6b 74 96 2d 00 eb d1 7f 6e 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: c6 c8 c4 56 9c 4f 0b 5a 6f fb 57 01 92 d7 2c 4f 30 cd 60 a6 93 d7 12 52 24 b6 17 43 4c b4 d3 0e 
+Tag: 2d 8b ae 5a 47 ef 55 c6 33 ec 82 0d f2 43 8c a8 7c 6e ee 99 7c cf 00 7d b9 e1 bb 8f 68 80 e2 24 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 
-Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 11 56 32 c6 46 40 41 e5 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: a5 45 64 02 63 bc 06 4d ac d8 a1 5f 5f bb e4 d4 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: f3 3b 37 a1 8f 2b 94 37 f2 f4 a6 6a 33 d5 4a 5c af 1c 01 d7 8f 9a 4e d5 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: be 16 65 e6 13 64 c2 b2 df 49 3d d4 ee 8b 3c e0 d5 2d 6b 92 ad 27 e5 ec ff f8 dc ca 46 3d 29 0e 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: cd 4d 92 bd 16 c7 3c fa 
+Tag: b2 d6 21 c4 b1 f0 79 c6 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: cc be 41 a0 e0 5e a1 4f 4e 35 10 83 75 b2 c8 e6 
+Tag: b9 47 76 1d b0 b4 00 02 55 bb 66 00 fb 32 9e bc 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 9e 2b ab de d7 66 90 c9 31 a5 36 69 4f d5 55 74 52 06 99 0e db d4 d0 31 
+Tag: 6d 56 a3 03 da 08 aa 1e 04 48 c0 7c 0c 39 f8 a8 fa 8c b2 87 2a ec 9f 18 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: b1 e5 9a b4 9c 6d 96 f5 78 b0 f2 73 60 59 5b b7 12 f8 77 6a 51 34 76 8d 04 5e 96 35 20 fd be 28 
+Tag: 2c 7f 8c f0 77 9b 9a 69 8e 82 3f c4 73 9c 66 1c 8f c7 e5 8e 2f 20 5f 0e 11 a2 49 73 c2 bc 00 9c 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 
-Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 9f 5a 39 c6 15 86 6a 69 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: a5 5b d5 4f 72 b5 83 d4 2c 2a e8 77 96 09 4a 71 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 96 b6 fe 21 06 b2 b0 61 dd 26 eb be cf 56 bf 3f 3f e0 11 ed b6 a6 ef c4 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 14 33 03 49 1a 15 eb a4 5a 46 37 f0 09 01 1a 82 27 75 0e e0 73 eb c1 8d 15 6b d1 b7 18 07 54 2a 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 02 f8 14 5a a7 cc 37 9d 
+Tag: c0 7c 41 08 e4 fb 9b c5 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 82 ad 36 cc 6e 72 81 88 aa a4 4a c5 d9 dc ee 5e 
+Tag: 6c c1 a7 57 6b a0 0f 18 bf 54 27 af 61 2d f1 52 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 21 4c 7f c6 1b 1c 55 bd 3f 66 77 86 56 c1 4d 58 ac d1 c7 a3 bd 7c 7a 4e 
+Tag: f8 af 53 c1 5a 0e a5 22 60 16 df aa 19 c5 27 6a 0a 97 60 b1 5d 3b 2d 21 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 9b 69 44 ea 4b 43 9d d9 0b 94 05 30 30 72 44 35 80 4b 61 dc c4 cf 86 c6 b4 c0 6a 21 05 36 8e 07 
+Tag: 24 a2 48 45 5f 3e 44 b1 c7 4a cd 88 d8 ad 4c a4 80 44 f0 f9 46 54 d6 bb e9 e5 49 b8 d9 05 ec 2d 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 
-Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 82 e9 a4 33 01 2b 6f f2 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 03 89 70 b0 bd 9f a9 3e ff b0 32 a9 f4 83 21 fc 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 36 88 6d 5d 27 a3 d1 35 41 29 20 1d 4f c9 1f 23 17 cb 2c db f2 76 da 92 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: c7 c9 40 90 6a 18 c8 a2 db 37 30 67 93 e8 70 d7 93 0c a2 9d ec 6b 8c d3 e0 7d ef 4e fc c1 94 5a 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: c4 7a 27 a5 cb e7 8d 12 
+Tag: 8e 73 4d 39 df 16 79 e0 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: 8d 42 2f 47 42 3a 27 2a 81 32 94 de ca ca 03 d0 
+Tag: 40 96 92 2a a3 4c 54 52 d1 56 13 3c e3 3b 6a 61 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: a2 a5 10 16 ef 8d 50 5b bd e6 ca af 0e 11 c6 12 00 e0 e0 5c 99 2b 42 65 
+Tag: f9 de 3b 80 09 c8 5c c2 a1 89 68 f7 84 68 fd 79 06 32 31 6a d7 3b 63 22 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 13 8a 5b 1e 84 f6 b3 9f 2c 78 30 d1 3c 4f 8c bd c8 04 a9 80 45 32 b1 12 ac 95 4c 8f 94 15 21 c5 
+Tag: cc 31 72 35 47 8b c8 77 7a ba 6a 40 c5 10 95 85 d4 7b 8e 48 ee 96 f6 36 10 d0 39 f4 11 f1 19 8f 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df 
-Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: c1 ea 2b a3 f5 cc 94 11 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: b2 68 8e 0a e9 01 41 7e 00 69 7b d4 3f e7 f1 79 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: 68 52 91 1d 55 bc 3f d4 8b 7d 08 4f 55 6a 84 f2 aa 3b 3e cb e9 4f a2 58 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
-Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df 
-Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 65 79 a0 26 3d 34 a9 c8 85 fd ba 78 95 b7 9a 22 49 5f a1 6c e4 85 b1 af 5d c9 b3 db 1d a7 51 e8 
-=======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 8 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 8 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df 8c a1 89 0d bf e6 42 68 41 99 2d 0f b0 54 bb 16 
 Salt: 3c aa a3 e8 a9 9f 9d eb 
-Tag: 5f 21 e4 4f a9 bf 7c 69 
+Tag: 17 3c cf 2a 9a 55 a9 79 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 16 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 16 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df 8c a1 89 0d bf e6 42 68 41 99 2d 0f b0 54 bb 16 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 
-Tag: fb 2b f3 12 7d 0f 14 ad 2c 54 cb 39 bd 12 8e 0f 
+Tag: 0d 4f ec 62 5f 43 17 5f ba d1 5e f2 4e a2 ff 60 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 24 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 24 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df 8c a1 89 0d bf e6 42 68 41 99 2d 0f b0 54 bb 16 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 
-Tag: bb 7a 70 df 7f 55 81 48 55 e9 e1 61 22 b4 3e 79 ab e3 41 1a c1 06 dd 8d 
+Tag: c6 26 9c 72 e2 d8 aa 86 3e 9c 04 9c 36 39 a4 27 37 3e a0 2b 25 eb 8f 6c 
 =======================================
-Iterations: 3, Memory: 1 KBytes, Tag length: 32 bytes
+Iterations: 3, Memory: 2 KBytes, Tag length: 32 bytes
 Password: 63 7c 77 7b f2 6b 6f c5 30 01 67 2b fe d7 ab 76 ca 82 c9 7d fa 59 47 f0 ad d4 a2 af 9c a4 72 c0 b7 fd 93 26 36 3f f7 cc 34 a5 e5 f1 71 d8 31 15 04 c7 23 c3 18 96 05 9a 07 12 80 e2 eb 27 b2 75 09 83 2c 1a 1b 6e 5a a0 52 3b d6 b3 29 e3 2f 84 53 d1 00 ed 20 fc b1 5b 6a cb be 39 4a 4c 58 cf d0 ef aa fb 43 4d 33 85 45 f9 02 7f 50 3c 9f a8 51 a3 40 8f 92 9d 38 f5 bc b6 da 21 10 ff f3 d2 cd 0c 13 ec 5f 97 44 17 c4 a7 7e 3d 64 5d 19 73 60 81 4f dc 22 2a 90 88 46 ee b8 14 de 5e 0b db e0 32 3a 0a 49 06 24 5c c2 d3 ac 62 91 95 e4 79 e7 c8 37 6d 8d d5 4e a9 6c 56 f4 ea 65 7a ae 08 ba 78 25 2e 1c a6 b4 c6 e8 dd 74 1f 4b bd 8b 8a 70 3e b5 66 48 03 f6 0e 61 35 57 b9 86 c1 1d 9e e1 f8 98 11 69 d9 8e 94 9b 1e 87 e9 ce 55 28 df 8c a1 89 0d bf e6 42 68 41 99 2d 0f b0 54 bb 16 
 Salt: 3c aa a3 e8 a9 9f 9d eb 50 f3 af 57 ad f6 22 aa 5e 39 0f 7d f7 a6 92 96 a7 55 3d c1 0a a3 1f 6b 
-Tag: 18 94 6a 68 89 ef 65 da 5d 1f 85 25 f1 f8 04 c6 8f a7 0b 64 4c ca a9 c4 25 55 f1 14 a3 7e 17 36 
+Tag: a8 ec 38 d7 22 65 30 2a 8d 1c 06 4f 60 f9 f9 46 93 ea aa 77 08 08 7c d2 b4 28 24 13 16 02 98 ab 
