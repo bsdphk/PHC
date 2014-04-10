@@ -1,12 +1,22 @@
-/*
-   LYRA2 reference source code package - <http://www.lyra-kdf.net/>
-
-   Written in 2014 by Leonardo de Campos Almeida <lalmeida@larc.usp.br>
-
-   To the extent possible under law, the author(s) have dedicated all copyright
-   and related and neighboring rights to this software to the public domain
-   worldwide. This software is distributed without any warranty.
-*/
+/**
+ * A simple main function for running the Lyra2 Password Hashing Scheme (PHS).
+ * 
+ * Author: The Lyra PHC team (http://www.lyra-kdf.net/) -- 2014.
+ * 
+ * This software is hereby placed in the public domain.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS
+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -88,7 +98,7 @@ int testVectors(unsigned int  t, unsigned int  r) {
      * and values varying from 128 to 255. The salt size is fixed in 16 bytes, 
 	 * and its value varies from 0 to 256.
 	 */
-    for (countSample = 128; countSample <= 256; countSample++) {
+    for (countSample = 128; countSample < 256; countSample++) {
         pwdLen = countSample - 127;
         int count;
         pwd = malloc(sizeof (pwd) * pwdLen);

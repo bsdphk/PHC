@@ -1,19 +1,24 @@
-/*
-   
-        Implementation of Lyra2.
-  
-   LYRA2 reference source code package - experimental CUDA implementation - <http://www.lyra-kdf.net/>
-
-   Written in 2014 by Leonardo de Campos Almeida <lalmeida@larc.usp.br>
-   Edited in 2014 by Paulo C. F. Santos <pcarlos@ime.usp.br>
-
-   To the extent possible under law, the author(s) have dedicated all copyright
-   and related and neighboring rights to this software to the public domain
-   worldwide. This software is distributed without any warranty.
-   
-   Note:
-   Implemented without shared memory optimizations.
-*/
+/**
+ * Header file for the Lyra2 Password Hashing Scheme (PHS). Experimental CUDA implementation.
+ * 
+ * Note: Implemented without shared memory optimizations.
+ * 
+ * Author: The Lyra PHC team (http://www.lyra-kdf.net/) -- 2014.
+ * 
+ * This software is hereby placed in the public domain.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE AUTHORS ''AS IS'' AND ANY EXPRESS
+ * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHORS OR CONTRIBUTORS BE
+ * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+ * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+ * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+ * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+ * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+ * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
 #ifndef LYRA2_H_
 #define LYRA2_H_
 

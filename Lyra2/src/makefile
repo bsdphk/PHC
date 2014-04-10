@@ -8,8 +8,9 @@ CC?=gcc
 NVCC=nvcc
 CFLAGS=-std=c99 -Wall -pedantic -O3
 
-BIN=../bin/Lyra2
-BINCUDA=../bin/Lyra2CUDA
+BINDIR=../bin
+BIN=$(BINDIR)/Lyra2
+BINCUDA=$(BINDIR)/Lyra2CUDA
 nCols=64
 
 SSEDIR=sse/
@@ -39,27 +40,33 @@ default:
 
 
 generic-x86-64:	    Lyra2.c Sponge.c Main.c Lyra2.h Sponge.h
+	mkdir -p $(BINDIR)	
 	$(CC) $(CFLAGS) Sponge.c Lyra2.c Main.c -o $(BIN) -DN_COLS=$(nCols) -O3
 	@echo "Build completed, binaries in $(BIN)"
 
 linux-x86-64-sse2:	$(SSEDIR)Lyra2.c $(SSEDIR)Sponge.c Main.c $(SSEDIR)Lyra2.h $(SSEDIR)Sponge.h
-	$(CC) $(CFLAGS) $(SSEDIR)Sponge.c $(SSEDIR)Lyra2.c Main.c -o $(BIN) -DN_COLS=$(nCols) -O3
+	mkdir -p $(BINDIR)
+	$(CC) $(CFLAGS) $(SSEDIR)Sponge.c $(SSEDIR)Lyra2.c Main.c -o $(BIN) -DN_COLS=$(nCols) -O3 -msse2
 	@echo "Build completed, binaries in $(BIN)"
 	
 linux-x86-64-cuda:  $(CUDADIR)Lyra2.cu $(CUDADIR)Sponge.cu $(CUDADIR)Main.cu $(CUDADIR)Lyra2.h $(CUDADIR)Sponge.h
+	mkdir -p $(BINDIR)
 	$(NVCC) $(CUDADIR)Lyra2.cu $(CUDADIR)Sponge.cu $(CUDADIR)Main.cu -O3 -o $(BINCUDA) -lcudart -DN_COLS=$(nCols)
 	@echo "Build completed, binaries in $(BINCUDA)"
 
 linux-x86-64-cuda-tested-arch:	$(CUDADIR)Lyra2.cu $(CUDADIR)Sponge.cu $(CUDADIR)Main.cu $(CUDADIR)Lyra2.h $(CUDADIR)Sponge.h
+	mkdir -p $(BINDIR)
 	$(NVCC) $(CUDADIR)Lyra2.cu $(CUDADIR)Sponge.cu $(CUDADIR)Main.cu -O3  -arch=compute_$(PTX)  -code=sm_$(SM) -o $(BINCUDA) -lcudart -DN_COLS=$(nCols)
 	@echo "Build completed, binaries in $(BINCUDA)"
 	
 windows-x86-64:	    Lyra2.c Sponge.c Main.c Lyra2.h Sponge.h
+	mkdir -p $(BINDIR)
 	$(CC) $(CFLAGS) Sponge.c Lyra2.c Main.c -o $(BIN) -DN_COLS=$(nCols) -O3
 	@echo "Build completed, binaries in $(BIN)"
 
 win-cygwin-x86-64-sse2:	$(SSEDIR)Lyra2.c $(SSEDIR)Sponge.c Main.c $(SSEDIR)Lyra2.h $(SSEDIR)Sponge.h
-	$(CC) $(CFLAGS) $(SSEDIR)Sponge.c $(SSEDIR)Lyra2.c Main.c -o $(BIN) -DN_COLS=$(nCols) -O3
+	mkdir -p $(BINDIR)
+	$(CC) $(CFLAGS) $(SSEDIR)Sponge.c $(SSEDIR)Lyra2.c Main.c -o $(BIN) -DN_COLS=$(nCols) -O3 -msse2
 	@echo "Build completed, binaries in $(BIN)"
 	
 clean:
