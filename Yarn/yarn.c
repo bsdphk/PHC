@@ -237,7 +237,7 @@ int yarn(void *out, size_t outlen, const void *in, size_t inlen, const void *sal
 		/* Invalid parameters */
 		return 0;
 	}
-	if (!(state = malloc(16 * (par + 1 + initrnd))) || !(memory = malloc(16 << m_cost))) {
+	if (!(state = malloc(16 * (par + 1 + initrnd))) || !(memory = malloc(16ULL << m_cost))) {
 		if (state != NULL) {
 			free(state);
 		}
@@ -276,5 +276,5 @@ int yarn(void *out, size_t outlen, const void *in, size_t inlen, const void *sal
 }
 
 int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost) {
-	return yarn(out, outlen, in, inlen, salt, saltlen, t_cost, m_cost, 6, 10, 72, NULL, 0);
+	return !yarn(out, outlen, in, inlen, salt, saltlen, t_cost, m_cost, 6, 10, 72, NULL, 0);
 }

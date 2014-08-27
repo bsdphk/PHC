@@ -1,0 +1,8 @@
+#!/bin/bash
+for file in phs*; do
+    if [ "$file" != "phs-polypasshash" ]; then
+        name=`echo $file | sed 's/phs-//'`
+        echo "Generating vectors for $name"
+        ./$file -G > vectors/${name}-vectors
+    fi
+done

@@ -1,0 +1,18 @@
+#!/bin/bash
+
+function password() {
+  pass=</dev/urandom tr -dc A-Za-z0-9 | head -q -c $1
+  echo $pass;
+}
+
+for phs in phs-*; do
+    echo "************ Running $phs with t_cost=1 m_cost=1, 1000 repeats"
+    ./$phs -p 0123456789abcdef -T 1000 1 1
+
+
+    echo "************ Running $phs with t_cost=1 m_cost=1, 1000 repeats, 1024 length password"
+    ./$phs -p $(password 1024) -T 1000 1 1
+
+    echo "************ Running $phs with t_cost=1 m_cost=1, 1000 repeats, 2048 length password"
+    ./$phs -p $(password 2048) -T 1000 1 1
+done

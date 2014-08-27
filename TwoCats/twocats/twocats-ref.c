@@ -202,7 +202,7 @@ bool TwoCats(TwoCats_H *H, uint32_t *hash32, uint8_t startMemCost, uint8_t stopM
         uint32_t subBlockSize, uint8_t overwriteCost) {
 
     // Allocate memory
-    uint32_t *mem = malloc((uint64_t)1024 << stopMemCost);
+    uint32_t *mem = (uint32_t *)malloc((uint64_t)1024 << stopMemCost);
     if(mem == NULL) {
         fprintf(stderr, "Unable to allocate memory\n");
         return false;

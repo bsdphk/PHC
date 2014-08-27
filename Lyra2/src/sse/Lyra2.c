@@ -100,6 +100,7 @@ int LYRA2(unsigned char *K, int kLen, const unsigned char *pwd, int pwdlen, cons
 
     //========== Initializing the Memory Matrix and pointers to it =============//
     //Allocates enough space for the whole memory matrix
+printf("Allocating %llu bytes\n", nRows*rowLenBytes);
     __m128i *wholeMatrix = malloc(nRows * rowLenBytes);
     if (wholeMatrix == NULL) {
         return -1;

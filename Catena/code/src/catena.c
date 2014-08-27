@@ -283,7 +283,7 @@ int PHS(void *out, size_t outlen,  const void *in, size_t inlen,
 	unsigned int m_cost) {
 
   return __Catena((const uint8_t *) in, inlen, salt, saltlen, (const uint8_t *)
-		  "", 0, t_cost, MIN_GARLIC, m_cost, outlen, REGULAR,
+		  "", 0, t_cost, m_cost, m_cost, outlen, REGULAR,
 		  PASSWORD_HASHING_MODE, out);
 }
 

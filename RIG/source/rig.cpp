@@ -181,7 +181,7 @@ int GenerateAlpha(byte* Password, int PasswordLength, byte* Salt, int SaltLength
 	return SUCCESS;
 }
 
-int PHS_FULL(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, COUNT_TYPE t_cost, COUNT_TYPE m_cost)
+extern "C" int PHS_FULL(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, COUNT_TYPE t_cost, COUNT_TYPE m_cost)
 {
 	int ret = SUCCESS;
 	int M_LOOP =0;

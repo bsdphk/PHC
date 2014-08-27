@@ -17,7 +17,7 @@
 //  defined(ARC_32) && sizeof(size_t) == sizeof(uint32_t)
 // !defined(ARC_32) && sizeof(size_t) == sizeof(uint64_t)
 
-int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost)
+extern "C" int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost)
 {
 	Sha512    sha512;
 	uint32_t  data[DATA_SIZE];

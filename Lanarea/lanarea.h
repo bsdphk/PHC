@@ -15,9 +15,6 @@ size_t t_cost,          // abstract amount of time to waste
 size_t m_cost           // abstract amount of memory to waste
 );
 
-static inline int PHS (void *out, size_t outlen, const void *in, size_t inlen,
-		const void *salt, size_t saltlen, size_t t_cost,
-		size_t m_cost) {
-
-	return lanarea (out, outlen, in, inlen, salt, saltlen, t_cost, m_cost);
-}
+int PHS (void *out, size_t outlen, const void *in, size_t inlen,
+		const void *salt, size_t saltlen, unsigned int t_cost,
+		unsigned int m_cost);

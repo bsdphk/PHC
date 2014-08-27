@@ -714,7 +714,7 @@ void get_random_bytes(unsigned int length, uint8 *dest);
 // with the API functions.
 
 // xoring two streams of bytes. 
-inline void _xor_share_with_digest(uint8 *result, uint8 *share,
+static inline void _xor_share_with_digest(uint8 *result, uint8 *share,
      uint8 * digest,unsigned int length) {
   int i;
   unsigned int *xor_digest_pointer;
@@ -749,7 +749,7 @@ inline void _xor_share_with_digest(uint8 *result, uint8 *share,
 
 // we will make an inline of the hash calculation, since it is done in many
 // places and looks too messy
-inline void _calculate_digest(uint8 *digest, const uint8 *password,
+static inline void _calculate_digest(uint8 *digest, const uint8 *password,
     unsigned int length) {
   EVP_MD_CTX mctx;
 
@@ -768,7 +768,7 @@ inline void _calculate_digest(uint8 *digest, const uint8 *password,
 
 
 // in the generate user event and when destroying a context object
-inline void _destroy_entry_list(pph_entry *head) {
+static inline void _destroy_entry_list(pph_entry *head) {
   pph_entry *last;
   last=head;
   while(head!=NULL) {

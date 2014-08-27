@@ -123,18 +123,10 @@ int PHS (void *out, size_t outlen, const void *in, size_t inlen, const void *sal
 {
         /* required PHS api */
 
-        char *hash;
         char *settings = pf_gensalt (salt, saltlen, t_cost, m_cost);
-
-        if (! (hash = (char *) pufferfish (in, inlen, settings, outlen, false)))
-        {
-                free (settings);
-                return 1;
-        }
-
-        memmove (out, hash, strlen (hash));
-        free (settings);
-        free (hash);
+        unsigned char *bytes = pufferfish (in, inlen, settings, outlen, true);
+        memmove (out, bytes, outlen);
+        free (bytes);
 
         return 0;
 }

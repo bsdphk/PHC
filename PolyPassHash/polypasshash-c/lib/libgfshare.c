@@ -23,7 +23,7 @@
  *
  */
 
-#include "config.h"
+//#include "config.h"
 #include "libgfshare.h"
 #include "libgfshare_tables.h"
 

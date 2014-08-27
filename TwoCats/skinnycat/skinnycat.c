@@ -239,7 +239,7 @@ static void printTest(SkinnyCat_HashType hashType, uint8_t *password, uint8_t pa
     printHex(" salt:", salt, saltSize);
     printf(" memCost:%u ", memCost);
     uint8_t hash[32];
-    SkinnyCat_HashPassword(SKINNYCAT_BLAKE2S, hash, password, passwordSize, salt, saltSize, memCost, false);
+    SkinnyCat_HashPassword(hashType, hash, password, passwordSize, salt, saltSize, memCost, false);
     printHex("-> ", hash, 32);
     printf("\n");
 }

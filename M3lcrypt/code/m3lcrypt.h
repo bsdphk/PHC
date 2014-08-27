@@ -79,7 +79,7 @@ hash_sz hsize[2] = { {32,64}, {64,128} };
 /* functional prototypes */
 void PRF_init(unsigned char *,const unsigned char *,unsigned long int);
 void ctx_reinit(hash_ctx *,unsigned char *);
-void PHS(void *,size_t,const void *,size_t,void *,size_t,unsigned int,unsigned int);
+int PHS(void *,size_t,const void *,size_t,void *,size_t,unsigned int,unsigned int);
 
 #endif 
 

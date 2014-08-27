@@ -11,7 +11,7 @@
  *
 \********************************************************************/
 
-
+#include <string.h>
 #include "m3lcrypt.h" 
 
 #if defined(__cplusplus)
@@ -19,7 +19,7 @@ extern "C"
 {
 #endif
 
-void PHS
+int PHS
 (
 	void *out,			/* output buffer	*/
 	size_t outlen,			/* output length	*/
@@ -179,6 +179,7 @@ void PHS
 	memset(X,0,m_cost*DIGEST_SIZE);
 	memset(V,0,_VSIZE*DIGEST_SIZE);
 	memset(&ctx,0,sizeof(ctx));
+        return 0;
 }
 
 void PRF_init

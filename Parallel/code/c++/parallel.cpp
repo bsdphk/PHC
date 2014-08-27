@@ -18,7 +18,7 @@ inline uint64_t calcLoopCount(uint32_t cost)
 	return ((uint64_t) ((cost & 1) ^ 3)) << ((cost - 1) >> 1);
 }
 
-int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost)
+extern "C" int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost)
 {
 	uint64_t key [HASH_LENGTH / sizeof(uint64_t)];
 	uint64_t tmp [HASH_LENGTH / sizeof(uint64_t)];

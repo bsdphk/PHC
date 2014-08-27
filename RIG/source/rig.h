@@ -1,16 +1,17 @@
 
+#include <stdint.h>
 #include <stdlib.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <time.h>
-#include "BLAKE\blake2.h"
+#include "BLAKE/blake2.h"
 
 #ifndef RECTANGLE_H_
 #define RECTANGLE_H_
 
-typedef unsigned char byte;
-typedef unsigned __int32 u32;
-typedef unsigned __int64 u64;
+typedef uint8_t byte;
+typedef uint32_t u32;
+typedef uint64_t u64;
 
 inline int BLAKE512(unsigned char *in, unsigned long long inlen, unsigned char *out)
 {
@@ -66,7 +67,7 @@ typedef byte AlphaData[HASH_LEN_BYTES_OUT];
 const char * GetError(int Error);
 void LongToBytes(COUNT_TYPE val, byte b[CNT_LEN_BYTES]) ;
 
-int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost);
+extern "C" int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost);
 
 
 static uint8_t PI_CONST[64] = {  0x24, 0x3F, 0x6A, 0x88, 0x85, 0xA3, 0x08, 0xD3, 0x13, 0x19, 0x8A, 0x2E, 0x03, 0x70, 0x73, 0x44,

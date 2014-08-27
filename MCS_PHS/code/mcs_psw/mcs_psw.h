@@ -5,7 +5,7 @@
 #ifndef HEADER_MCS_PSW_H
 #define HEADER_MCS_PSW_H
 
-int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost);
+extern "C" int PHS(void *out, size_t outlen, const void *in, size_t inlen, const void *salt, size_t saltlen, unsigned int t_cost, unsigned int m_cost);
 
 
 
